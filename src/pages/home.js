@@ -53,6 +53,7 @@ const WelcomeText = styled.h3`
 `;
 
 const AboutContainer = styled.div`
+  grid-area: SliderContainer;
   background-color: ${props => props.bgColor};
   padding: 50px;
   border: solid;
@@ -145,19 +146,26 @@ const PageLinkButton = styled(Button)`
   height: fit-content;
 `;
 
+const ProjectContainer = styled.div`
+  grid-area: ProjectContainer;
+  display: grid;
+	grid-template-areas: "SliderText" "Button" "ProjectImageContainer";
+	grid-template-rows: min-content min-content auto;
+  background-color: ${props => props.bgColor};
+  padding: 50px;
+  border: solid;
+  border-width: 30px;
+  height: 100%;
+`;
+
 const ProjectImageContainer = styled.div`
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-right: 45px;
-  margin-left: 60px;
-  width: 38vw;
-  height: 35vw;
+  grid-area: ProjectImageContainer;
 `;
 
 const ProjectImageBack = styled.img`
-  width: 35vw;
-  margin: 30px;
-  transform: translate(-50px, -30px);
+  width: 50%;
+  margin-top: 8%;
+  margin-left: 10%;
   position: absolute;
   border-radius: 5px;
   border: solid;
@@ -169,9 +177,10 @@ const ProjectImageBack = styled.img`
 `;
 
 const ProjectImageFront = styled.img`
-  width: 35vw;
-  margin: 30px;
-  transform: translate(60px, 70px);
+  width: 50%;
+  margin-top: 8%;
+  margin-left: 10%;
+  transform: translate(20%, 25%);
   position: absolute;
   border-radius: 5px;
   border: solid;
@@ -182,6 +191,14 @@ const ProjectImageFront = styled.img`
   }
 `;
 
+const BlogContainer = styled.div`
+  grid-area: BlogContainer;
+  background-color: ${props => props.bgColor};
+  padding: 50px;
+  border: solid;
+  border-width: 30px;
+`;
+
 const BlogImageContainer = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
@@ -189,13 +206,13 @@ const BlogImageContainer = styled.div`
   margin-left: 60px;
   width: 38vw;
   height: 35vw;
-  display: flex;
 `;
 
 const BlogImage = styled.img`
   position: absolute;
-  transform: translate(60px, -30px);
-  width: 30vw;
+  transform: translate(40px, 0px);
+  margin-top: 50px;
+  width: 50%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
@@ -207,8 +224,8 @@ const BlogImage = styled.img`
 
 const BlogProfileImage = styled.img`
   position: absolute;
-  transform: translate(0px, 50px);
-  width: 24vw;
+  transform: translate(0px, 189px);
+  width: 30%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
@@ -216,6 +233,12 @@ const BlogProfileImage = styled.img`
   &:hover {
     transform: translate(0px, 50px) scale(1.05);
   }
+`;
+
+const MultiSlideInSectionContainer = styled.div`
+  display: grid;
+	grid-template-areas: "ProjectContainer BlogContainer";
+	grid-template-columns: 50% 50%;
 `;
 
 // ##########################################
@@ -284,38 +307,40 @@ export default function Home() {
           </AboutContainer>
         </SlideInSection>
         
-        <SlideInSection>
-          <AboutContainer bgColor='#145e97'>
-            <SliderText>
-              Check out some of my projects!
+        <MultiSlideInSectionContainer>
+          
+          <SlideInSection>
+            <ProjectContainer bgColor='#145e97'>
+              <SliderText>
+                Check out some of my projects!
+              </SliderText>
               <PageLinkButton href="../projects">
                 View Projects <FaCaretRight />
               </PageLinkButton>
-            </SliderText>
-            <ProjectImageContainer>
-              <ProjectImageBack src="images/projects/MarvelComicWiki[CharacterSearch].jpeg" />
-              <ProjectImageFront src="images/projects/MarvelComicWiki[EventsInformation].jpeg" />
-            </ProjectImageContainer>
-          </AboutContainer>
-        </SlideInSection>
-        
-        <SlideInSection>
-          <AboutContainer bgColor='#145e97'>
-            <SliderText>
-              I've also got a blog!
-              <PageLinkButton href="../blog">
-                Visit Blog <FaCaretRight />
-              </PageLinkButton>
-            </SliderText>
-            <BlogImageContainer>
-              <BlogImage src="images/medium-blog-post-contents.jpeg" />
-              <BlogProfileImage src="images/github-profile.jpeg" />
-            </BlogImageContainer>
-          </AboutContainer>
-        </SlideInSection>
-        
+              <ProjectImageContainer>
+                <ProjectImageBack src="images/projects/MarvelComicWiki[CharacterSearch].jpeg" />
+                <ProjectImageFront src="images/projects/MarvelComicWiki[EventsInformation].jpeg" />
+              </ProjectImageContainer>
+            </ProjectContainer>
+          </SlideInSection>
 
-        
+          <SlideInSection>
+            <BlogContainer bgColor='#145e97'>
+              <SliderText>
+                I've also got a blog!
+                <PageLinkButton href="../blog">
+                  Visit Blog <FaCaretRight />
+                </PageLinkButton>
+              </SliderText>
+              <BlogImageContainer>
+                <BlogImage src="images/medium-blog-post-contents.jpeg" />
+                <BlogProfileImage src="images/github-profile.jpeg" />
+              </BlogImageContainer>
+            </BlogContainer>
+          </SlideInSection>
+          
+        </MultiSlideInSectionContainer>
+      
         <Footer />
         
       </ContentContainer>
