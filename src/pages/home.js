@@ -54,10 +54,7 @@ const WelcomeText = styled.h3`
 
 const AboutContainer = styled.div`
   background-color: ${props => props.bgColor};
-  display: flex;
   padding: 50px;
-  align-items: center;
-  justify-content: space-around;
   border: solid;
   border-width: 30px;
 `;
@@ -70,21 +67,29 @@ const SliderText = styled.h3`
 `;
 
 const AboutInformationContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  margin-left: 50px;
+  display: grid;
+	grid-template-areas: "GithubStats ProfileCard";
+	grid-template-columns: auto;
+  @media (max-width: 991px) {
+    grid-template-areas: "ProfileCard" "GithubStats";
+	}
 `;
 
 const AboutCard = styled(Card)`
+  grid-area: ProfileCard;
   text-align: center;
-  margin-right: 50px;
+  place-self: center;
   padding: 10px;
   background-color: #111a21;
-  width: 17rem;
+  width: 70%;
   filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 991px) {
+    margin-top: 50px;
+    width: 50%;
+	}
 `;
 
 const AboutCardBody = styled(Card.Body)`
@@ -109,11 +114,16 @@ const StyledCardImage = styled(Card.Img)`
 `;
 
 const GithubStatsContainer = styled.div`
+  grid-area: GithubStats;
   color: white;
   text-align: -webkit-center;
+  align-self: self-end;
   &:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 991px) {
+    margin-top: 50px;
+	}
 `;
 
 const GithubStatsText = styled.h4`
@@ -251,6 +261,12 @@ export default function Home() {
               </PageLinkButton>
             </SliderText>
             <AboutInformationContainer>
+              <GithubStatsContainer>
+                <GithubStatsText>Follow me on Github!</GithubStatsText>
+                <a href="https://github.com/PvtGandalf">
+                  <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
+                </a>
+              </GithubStatsContainer>
               <AboutCard>
                 <AboutCardBody>
                   <AboutCardTitle>Jaiden Hodson</AboutCardTitle>
@@ -258,12 +274,6 @@ export default function Home() {
                   <StyledCardImage variant="top" src="images/jaiden-model-profile-picture.jpeg" />
                 </AboutCardBody>
               </AboutCard>
-              <GithubStatsContainer>
-                <GithubStatsText>Follow me on Github!</GithubStatsText>
-                <a href="https://github.com/PvtGandalf">
-                  <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
-                </a>
-              </GithubStatsContainer>
             </AboutInformationContainer>
           </AboutContainer>
         </SlideInSection>

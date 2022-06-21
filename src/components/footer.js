@@ -23,6 +23,7 @@ const SocialContainer = styled.div`
 `;
 
 const SocialIcon = styled.a`
+  display: inline-block;
 	color: white;
 	margin-right: 10px;
   margin-left: 10px;
@@ -30,7 +31,7 @@ const SocialIcon = styled.a`
 	&:hover {
 		color: white;
 		transform: scale(1.25);
-	}
+	};
 `;
 
 const CopyrightContainer = styled.div`
