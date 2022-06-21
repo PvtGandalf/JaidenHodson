@@ -59,19 +59,23 @@ const AboutContainer = styled.div`
   border-width: 30px;
 `;
 
-const SliderText = styled.h3`
-	color: white;
-  font-size: 3vw;
-  display: flex;
-  flex-direction: column;
-`;
-
 const AboutInformationContainer = styled.div`
   display: grid;
-	grid-template-areas: "GithubStats ProfileCard";
+	grid-template-areas: "SliderText SliderText" "Button ProfileCard" "GithubStats ProfileCard";
 	grid-template-columns: auto;
   @media (max-width: 991px) {
-    grid-template-areas: "ProfileCard" "GithubStats";
+    grid-template-areas: "SliderText SliderText Button" "ProfileCard ProfileCard ProfileCard" "GithubStats GithubStats GithubStats";
+    grid-template-columns: auto auto 130px;
+  }
+`;
+
+const SliderText = styled.h3`
+  margin-bottom: 20px;
+	grid-area: SliderText;
+  color: white;
+  font-size: 3vw;
+  @media (max-width: 991px) {
+    margin-bottom: 0px;
 	}
 `;
 
@@ -122,7 +126,7 @@ const GithubStatsContainer = styled.div`
     transform: scale(1.05);
   }
   @media (max-width: 991px) {
-    margin-top: 50px;
+    margin-top: 40px;
 	}
 `;
 
@@ -131,12 +135,14 @@ const GithubStatsText = styled.h4`
 `;
 
 const GithubStatsImage = styled.img`
+  width: 100%;
   filter: drop-shadow(10px 10px 25px #111a21);
 `;
 
 const PageLinkButton = styled(Button)`
-  margin-top: 25px;
+  grid-area: Button;
   width: fit-content;
+  height: fit-content;
 `;
 
 const ProjectImageContainer = styled.div`
@@ -254,13 +260,13 @@ export default function Home() {
         
         <SlideInSection>
           <AboutContainer bgColor='#145e97'>
-            <SliderText>
-              Want to learn more about me?
-              <PageLinkButton href="../about">
-                Learn More <FaCaretRight />
-              </PageLinkButton>
-            </SliderText>
             <AboutInformationContainer>
+              <SliderText>
+                Want to learn more about me?
+              </SliderText>
+              <PageLinkButton href="../about">
+                  Learn More <FaCaretRight />
+                </PageLinkButton>
               <GithubStatsContainer>
                 <GithubStatsText>Follow me on Github!</GithubStatsText>
                 <a href="https://github.com/PvtGandalf">
@@ -296,7 +302,7 @@ export default function Home() {
         <SlideInSection>
           <AboutContainer bgColor='#145e97'>
             <SliderText>
-              Or maybe my blog?
+              I've also got a blog!
               <PageLinkButton href="../blog">
                 Visit Blog <FaCaretRight />
               </PageLinkButton>
