@@ -13,13 +13,13 @@ import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope } from 'react-icons/fa';
 // #       Component Specific Styling       #
 // ##########################################
 const StyledFooter = styled.div`
-  margin-top: 50px;
-  margin-bottom: 60px;
+  margin: 3vw;
 `;
 
 const SocialContainer = styled.div`
   text-align: center;
   margin: 20px;
+  font-size: calc(1vw + 0.5rem);
 `;
 
 const SocialIcon = styled.a`
@@ -27,7 +27,6 @@ const SocialIcon = styled.a`
 	color: white;
 	margin-right: 10px;
   margin-left: 10px;
-  font-size: 1.65vw;
 	&:hover {
 		color: white;
 		transform: scale(1.25);
@@ -35,17 +34,15 @@ const SocialIcon = styled.a`
 `;
 
 const CopyrightContainer = styled.div`
-
+  font-size: calc(1vw + 0.5rem);
 `;
 
 const CopyrightText = styled.p`
-  font-size: 1.5rem;
   color: white;
   text-align: center;
 `;
 
 const WebsiteLink = styled.a`
-  font-size: 1.5rem;
   color: white;
   text-align: center;
   text-decoration: none;

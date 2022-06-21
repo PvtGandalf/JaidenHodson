@@ -70,7 +70,7 @@ const AboutInformationContainer = styled.div`
   }
 `;
 
-const SliderText = styled.h3`
+const AboutSliderText = styled.h3`
   margin-bottom: 20px;
 	grid-area: SliderText;
   color: white;
@@ -78,6 +78,13 @@ const SliderText = styled.h3`
   @media (max-width: 991px) {
     margin-bottom: 0px;
 	}
+`;
+
+const SliderText = styled.h3`
+  margin-bottom: 20px;
+	grid-area: SliderText;
+  color: white;
+  font-size: 3vw;
 `;
 
 const AboutCard = styled(Card)`
@@ -93,7 +100,7 @@ const AboutCard = styled(Card)`
   }
   @media (max-width: 991px) {
     margin-top: 50px;
-    width: 50%;
+    width: 45vw;
 	}
 `;
 
@@ -144,6 +151,10 @@ const PageLinkButton = styled(Button)`
   grid-area: Button;
   width: fit-content;
   height: fit-content;
+  font-size: calc(1vw + 0.25rem);
+  @media (max-width: 991px) {
+    justify-self: self-end;
+	}
 `;
 
 const ProjectContainer = styled.div`
@@ -155,83 +166,111 @@ const ProjectContainer = styled.div`
   padding: 50px;
   border: solid;
   border-width: 30px;
-  height: 100%;
+  aspect-ratio: 1 / 1;
+  @media (max-width: 991px) {
+    grid-template-areas: "SliderText SliderText Button" "ProjectImageContainer ProjectImageContainer ProjectImageContainer";
+    grid-template-rows: min-content auto;
+    aspect-ratio: 5 / 4;
+  }
 `;
 
 const ProjectImageContainer = styled.div`
   grid-area: ProjectImageContainer;
+  position: relative;
+  width: 100%;
+  max-width: 37vw;
+  line-height: 0;
+  @media (max-width: 991px) {
+    max-width: none;
+    max-height: 20vw;
+	}
 `;
 
 const ProjectImageBack = styled.img`
-  width: 50%;
-  margin-top: 8%;
-  margin-left: 10%;
+  width: 75%;
   position: absolute;
+  top: 15%;
+  left: 10%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
   filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
-    transform: translate(-50px, -30px) scale(1.05);
+    transform: scale(1.05);
   }
+  @media (max-width: 991px) {
+    max-width: 75vw;
+    left: 0%;
+	}
 `;
 
 const ProjectImageFront = styled.img`
-  width: 50%;
-  margin-top: 8%;
-  margin-left: 10%;
-  transform: translate(20%, 25%);
+  width: 75%;
   position: absolute;
+  top: 30%;
+  left: 25%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
   filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
-    transform: translate(60px, 70px) scale(1.05);
+    transform: scale(1.05);
   }
 `;
 
 const BlogContainer = styled.div`
   grid-area: BlogContainer;
+  display: grid;
+	grid-template-areas: "SliderText" "Button" "BlogImageContainer";
+	grid-template-rows: min-content min-content auto;
   background-color: ${props => props.bgColor};
   padding: 50px;
   border: solid;
   border-width: 30px;
+  aspect-ratio: 1 / 1;
+  @media (max-width: 991px) {
+    grid-template-areas: "SliderText SliderText Button" "BlogImageContainer BlogImageContainer BlogImageContainer";
+    grid-template-rows: min-content auto;
+  }
 `;
 
 const BlogImageContainer = styled.div`
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-right: 45px;
-  margin-left: 60px;
-  width: 38vw;
-  height: 35vw;
+  grid-area: BlogImageContainer;
+  position: relative;
+  width: 100%;
+  max-width: 37vw;
+  line-height: 0;
 `;
 
 const BlogImage = styled.img`
+  max-height: 85%;
   position: absolute;
-  transform: translate(40px, 0px);
-  margin-top: 50px;
-  width: 50%;
+  top: 12%;
+  left: 25%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
   filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
-    transform: translate(60px, -30px) scale(1.05);
+    transform: scale(1.05);
+  }
+  @media (max-width: 991px) {
+    top: 7%;
+    left: 55%;
   }
 `;
 
 const BlogProfileImage = styled.img`
+  height: 65%;
   position: absolute;
-  transform: translate(0px, 189px);
-  width: 30%;
+  top: 32%;
+  left: 14%;
   border-radius: 5px;
   border: solid;
   border-color: #111a21;
   filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
-    transform: translate(0px, 50px) scale(1.05);
+    transform: scale(1.05);
   }
 `;
 
@@ -239,6 +278,10 @@ const MultiSlideInSectionContainer = styled.div`
   display: grid;
 	grid-template-areas: "ProjectContainer BlogContainer";
 	grid-template-columns: 50% 50%;
+  @media (max-width: 991px) {
+    grid-template-columns: auto;
+    grid-template-areas: "ProjectContainer" "BlogContainer";
+	}
 `;
 
 // ##########################################
@@ -284,12 +327,12 @@ export default function Home() {
         <SlideInSection>
           <AboutContainer bgColor='#145e97'>
             <AboutInformationContainer>
-              <SliderText>
+              <AboutSliderText>
                 Want to learn more about me?
-              </SliderText>
+              </AboutSliderText>
               <PageLinkButton href="../about">
-                  Learn More <FaCaretRight />
-                </PageLinkButton>
+                Learn More <FaCaretRight />
+              </PageLinkButton>
               <GithubStatsContainer>
                 <GithubStatsText>Follow me on Github!</GithubStatsText>
                 <a href="https://github.com/PvtGandalf">
@@ -312,7 +355,7 @@ export default function Home() {
           <SlideInSection>
             <ProjectContainer bgColor='#145e97'>
               <SliderText>
-                Check out some of my projects!
+                Check out my projects!
               </SliderText>
               <PageLinkButton href="../projects">
                 View Projects <FaCaretRight />
@@ -328,10 +371,10 @@ export default function Home() {
             <BlogContainer bgColor='#145e97'>
               <SliderText>
                 I've also got a blog!
-                <PageLinkButton href="../blog">
-                  Visit Blog <FaCaretRight />
-                </PageLinkButton>
               </SliderText>
+              <PageLinkButton href="../blog">
+                Visit Blog <FaCaretRight />
+              </PageLinkButton>
               <BlogImageContainer>
                 <BlogImage src="images/medium-blog-post-contents.jpeg" />
                 <BlogProfileImage src="images/github-profile.jpeg" />
