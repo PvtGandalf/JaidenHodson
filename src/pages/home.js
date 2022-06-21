@@ -58,6 +58,8 @@ const AboutContainer = styled.div`
   padding: 50px;
   align-items: center;
   justify-content: space-around;
+  border: solid;
+  border-width: 30px;
 `;
 
 const SliderText = styled.h3`
@@ -79,6 +81,7 @@ const AboutCard = styled(Card)`
   padding: 10px;
   background-color: #111a21;
   width: 17rem;
+  filter: drop-shadow(10px 10px 25px #111a21);
   &:hover {
     transform: scale(1.05);
   }
@@ -113,13 +116,90 @@ const GithubStatsContainer = styled.div`
   }
 `;
 
+const GithubStatsText = styled.h4`
+  margin-bottom: 20px;
+`;
+
 const GithubStatsImage = styled.img`
-  
+  filter: drop-shadow(10px 10px 25px #111a21);
 `;
 
 const PageLinkButton = styled(Button)`
   margin-top: 25px;
   width: fit-content;
+`;
+
+const ProjectImageContainer = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 45px;
+  margin-left: 60px;
+  width: 38vw;
+  height: 35vw;
+`;
+
+const ProjectImageBack = styled.img`
+  width: 35vw;
+  margin: 30px;
+  transform: translate(-50px, -30px);
+  position: absolute;
+  border-radius: 5px;
+  border: solid;
+  border-color: #111a21;
+  filter: drop-shadow(10px 10px 25px #111a21);
+  &:hover {
+    transform: translate(-50px, -30px) scale(1.05);
+  }
+`;
+
+const ProjectImageFront = styled.img`
+  width: 35vw;
+  margin: 30px;
+  transform: translate(60px, 70px);
+  position: absolute;
+  border-radius: 5px;
+  border: solid;
+  border-color: #111a21;
+  filter: drop-shadow(10px 10px 25px #111a21);
+  &:hover {
+    transform: translate(60px, 70px) scale(1.05);
+  }
+`;
+
+const BlogImageContainer = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 45px;
+  margin-left: 60px;
+  width: 38vw;
+  height: 35vw;
+  display: flex;
+`;
+
+const BlogImage = styled.img`
+  position: absolute;
+  transform: translate(60px, -30px);
+  width: 30vw;
+  border-radius: 5px;
+  border: solid;
+  border-color: #111a21;
+  filter: drop-shadow(10px 10px 25px #111a21);
+  &:hover {
+    transform: translate(60px, -30px) scale(1.05);
+  }
+`;
+
+const BlogProfileImage = styled.img`
+  position: absolute;
+  transform: translate(0px, 50px);
+  width: 24vw;
+  border-radius: 5px;
+  border: solid;
+  border-color: #111a21;
+  filter: drop-shadow(10px 10px 25px #111a21);
+  &:hover {
+    transform: translate(0px, 50px) scale(1.05);
+  }
 `;
 
 // ##########################################
@@ -175,11 +255,11 @@ export default function Home() {
                 <AboutCardBody>
                   <AboutCardTitle>Jaiden Hodson</AboutCardTitle>
                   <AboutCardSubtitle>Full Stack Software Developer</AboutCardSubtitle>
-                  <StyledCardImage variant="top" src="jaiden-model-profile-picture.jpeg" />
+                  <StyledCardImage variant="top" src="images/jaiden-model-profile-picture.jpeg" />
                 </AboutCardBody>
               </AboutCard>
               <GithubStatsContainer>
-                <h4>Follow me on Github!</h4>
+                <GithubStatsText>Follow me on Github!</GithubStatsText>
                 <a href="https://github.com/PvtGandalf">
                   <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
                 </a>
@@ -196,6 +276,10 @@ export default function Home() {
                 View Projects <FaCaretRight />
               </PageLinkButton>
             </SliderText>
+            <ProjectImageContainer>
+              <ProjectImageBack src="images/projects/MarvelComicWiki[CharacterSearch].jpeg" />
+              <ProjectImageFront src="images/projects/MarvelComicWiki[EventsInformation].jpeg" />
+            </ProjectImageContainer>
           </AboutContainer>
         </SlideInSection>
         
@@ -207,19 +291,14 @@ export default function Home() {
                 Visit Blog <FaCaretRight />
               </PageLinkButton>
             </SliderText>
+            <BlogImageContainer>
+              <BlogImage src="images/medium-blog-post-contents.jpeg" />
+              <BlogProfileImage src="images/github-profile.jpeg" />
+            </BlogImageContainer>
           </AboutContainer>
         </SlideInSection>
         
-        <SlideInSection>
-          <AboutContainer bgColor='#145e97'>
-            <SliderText>
-              I'd love to hear from you!
-              <PageLinkButton href="../contact">
-                Contact Me <FaCaretRight />
-              </PageLinkButton>
-            </SliderText>
-          </AboutContainer>
-        </SlideInSection>
+
         
         <Footer />
         
