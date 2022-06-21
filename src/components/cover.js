@@ -2,7 +2,7 @@
 // #        Import External Components      #
 // ##########################################
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaBook, FaDownload} from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope, FaBook, FaDownload} from 'react-icons/fa';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react'
 import { Modal, Button } from 'react-bootstrap'
@@ -180,6 +180,10 @@ export default function Cover(props) {
 						
 						<CoverSocialIcon href='https://github.com/PvtGandalf'>
 							<FaGithub />
+						</CoverSocialIcon>
+						
+						<CoverSocialIcon href='https://medium.com/@PvtGandalf'>
+							<FaMediumM />
 						</CoverSocialIcon>
 						
 						<CoverSocialIcon href='mailto:jaidenhodson1013@gmail.com'>

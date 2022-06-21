@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled/macro';
 import { Card, Button } from 'react-bootstrap'
+import { FaCaretRight } from 'react-icons/fa';
 
 // ##########################################
 // #        Import Local Components         #
@@ -12,6 +13,7 @@ import Cover from '../components/cover';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Player from '../components/player';
+import SlideInSection from '../components/slideInSection';
 import Image from '../images/pexels-photography-maghradze-ph-3764958.jpg';
 
 // ##########################################
@@ -23,19 +25,6 @@ const PageContainer = styled.div`
 
 const HeadingContainer = styled.div`
 
-`;
-
-const TitleContainer = styled.div`
-  text-align: -webkit-center;
-  margin-top: 100px;
-`;
-
-const Title = styled.h1`
-  color: white;
-  width: fit-content;
-  background: #00000075;
-  padding: 25px;
-  max-width: 65%;
 `;
 
 const ContentContainer = styled.div`
@@ -66,26 +55,33 @@ const WelcomeText = styled.h3`
 const AboutContainer = styled.div`
   background-color: ${props => props.bgColor};
   display: flex;
+  padding: 50px;
+  align-items: center;
+  justify-content: space-around;
 `;
 
-const AboutText = styled.h3`
+const SliderText = styled.h3`
 	color: white;
-  font-size: 4.5vw;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
-  width: 60%;
+  font-size: 3vw;
   display: flex;
   flex-direction: column;
 `;
 
+const AboutInformationContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-left: 50px;
+`;
+
 const AboutCard = styled(Card)`
   text-align: center;
-  padding: 10px;
   margin-right: 50px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  padding: 10px;
   background-color: #111a21;
+  width: 17rem;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const AboutCardBody = styled(Card.Body)`
@@ -109,27 +105,21 @@ const StyledCardImage = styled(Card.Img)`
   width: -webkit-fill-available;
 `;
 
-const LearnMoreButton = styled(Button)`
+const GithubStatsContainer = styled.div`
+  color: white;
+  text-align: -webkit-center;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const GithubStatsImage = styled.img`
+  
+`;
+
+const PageLinkButton = styled(Button)`
   margin-top: 25px;
   width: fit-content;
-`;
-
-const ProjectText = styled.h3`
-	color: white;
-  font-size: 5vw;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 50px;
-  width: 100%;
-`;
-
-const ContactText = styled.h3`
-	color: white;
-  font-size: 5vw;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 50px;
-  width: 100%;
 `;
 
 // ##########################################
@@ -160,7 +150,7 @@ export default function Home() {
           coverText="Jaiden Hodson"
           coverSubtext={["Full Stack", "Software Developer"]}
         />
-        <Header/>      
+        <Header />      
       </HeadingContainer>
       
       <ContentContainer marginTop={contentMarginTop}>
@@ -171,37 +161,69 @@ export default function Home() {
           </PlayerContainer>
           <WelcomeText>Hey all, I'm Jaiden and I'm glad you made it!</WelcomeText>
         </WelcomeContainer>
-       
-        <AboutContainer bgColor='#145e97'>
-          <AboutText>
-            Want to learn more about me?
-            <LearnMoreButton>
-              Learn More >
-            </LearnMoreButton>
-          </AboutText>
-          <AboutCard style={{ width: '18rem' }}>
-            <AboutCardBody>
-              <AboutCardTitle>Jaiden Hodson</AboutCardTitle>
-              <AboutCardSubtitle>Full Stack Software Developer</AboutCardSubtitle>
-              <StyledCardImage variant="top" src="jaiden-model-profile-picture.jpeg" />
-            </AboutCardBody>
-          </AboutCard>
-        </AboutContainer>
         
-        <AboutContainer bgColor='#145e97'>
-          <ProjectText>Check out some of my projects!</ProjectText>
-        </AboutContainer>
+        <SlideInSection>
+          <AboutContainer bgColor='#145e97'>
+            <SliderText>
+              Want to learn more about me?
+              <PageLinkButton href="../about">
+                Learn More <FaCaretRight />
+              </PageLinkButton>
+            </SliderText>
+            <AboutInformationContainer>
+              <AboutCard>
+                <AboutCardBody>
+                  <AboutCardTitle>Jaiden Hodson</AboutCardTitle>
+                  <AboutCardSubtitle>Full Stack Software Developer</AboutCardSubtitle>
+                  <StyledCardImage variant="top" src="jaiden-model-profile-picture.jpeg" />
+                </AboutCardBody>
+              </AboutCard>
+              <GithubStatsContainer>
+                <h4>Follow me on Github!</h4>
+                <a href="https://github.com/PvtGandalf">
+                  <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
+                </a>
+              </GithubStatsContainer>
+            </AboutInformationContainer>
+          </AboutContainer>
+        </SlideInSection>
         
-        <AboutContainer bgColor='#145e97'>
-          <ProjectText>Or maybe my blog?</ProjectText>
-        </AboutContainer>
+        <SlideInSection>
+          <AboutContainer bgColor='#145e97'>
+            <SliderText>
+              Check out some of my projects!
+              <PageLinkButton href="../projects">
+                View Projects <FaCaretRight />
+              </PageLinkButton>
+            </SliderText>
+          </AboutContainer>
+        </SlideInSection>
         
-        <AboutContainer bgColor='#145e97'>
-          <ContactText>I'd love to hear from you!</ContactText>
-        </AboutContainer>
+        <SlideInSection>
+          <AboutContainer bgColor='#145e97'>
+            <SliderText>
+              Or maybe my blog?
+              <PageLinkButton href="../blog">
+                Visit Blog <FaCaretRight />
+              </PageLinkButton>
+            </SliderText>
+          </AboutContainer>
+        </SlideInSection>
+        
+        <SlideInSection>
+          <AboutContainer bgColor='#145e97'>
+            <SliderText>
+              I'd love to hear from you!
+              <PageLinkButton href="../contact">
+                Contact Me <FaCaretRight />
+              </PageLinkButton>
+            </SliderText>
+          </AboutContainer>
+        </SlideInSection>
+        
+        <Footer />
         
       </ContentContainer>
-      
     </PageContainer>
   );
 }
