@@ -58,16 +58,16 @@ export default function Footer() {
     <StyledFooter>
       <SocialContainer>
         
-        <SocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
-          <FaLinkedin />
-        </SocialIcon>
-        
         <SocialIcon href='https://github.com/PvtGandalf'>
           <FaGithub />
         </SocialIcon>
         
         <SocialIcon href='https://medium.com/@PvtGandalf'>
           <FaMediumM />
+        </SocialIcon>
+        
+        <SocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
+          <FaLinkedin />
         </SocialIcon>
         
         <SocialIcon href='mailto:jaidenhodson1013@gmail.com'>

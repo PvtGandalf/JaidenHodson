@@ -174,16 +174,16 @@ export default function Cover(props) {
 					
 					<CoverSocialContainer>
 					
-						<CoverSocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
-							<FaLinkedin />
-						</CoverSocialIcon>
-						
 						<CoverSocialIcon href='https://github.com/PvtGandalf'>
 							<FaGithub />
 						</CoverSocialIcon>
-						
+					
 						<CoverSocialIcon href='https://medium.com/@PvtGandalf'>
 							<FaMediumM />
+						</CoverSocialIcon>
+					
+						<CoverSocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
+							<FaLinkedin />
 						</CoverSocialIcon>
 						
 						<CoverSocialIcon href='mailto:jaidenhodson1013@gmail.com'>
