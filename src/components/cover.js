@@ -63,7 +63,7 @@ const CoverCharacter = styled.span`
 	display: block;
 	&:hover {
 		animation: ${animateColorChange} 5s linear infinite, ${animateBounce} 1s linear infinite;
-		background-image: linear-gradient(0deg, #cf5c5c,#c19b4a,#def2a0,#c6ee4a,#42eca6,#64b3d9,#208ea2,#498ada,#5b73df,#897ed3,#cf5c5c,#c19b4a);
+		background-image: linear-gradient(0deg, hsla(0, 100%, 50%, 1) 0%, hsla(306, 100%, 50%, 1) 10%, hsla(170, 100%, 47%, 1) 20%, hsla(279, 100%, 50%, 1) 30%, hsla(248, 100%, 50%, 1) 40%, hsla(141, 100%, 50%, 1) 50%, hsla(248, 100%, 50%, 1) 60%, hsla(279, 100%, 50%, 1) 70%, hsla(170, 100%, 47%, 1) 80%, hsla(306, 100%, 50%, 1) 90%, hsla(0, 100%, 50%, 1) 100%);
 		background-size: 100% 1100%;
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;

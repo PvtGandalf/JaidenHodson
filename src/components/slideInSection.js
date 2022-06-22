@@ -33,7 +33,6 @@ export default function SlideInSection(props) {
 			});
     });
     observer.observe(domRef.current);
-    return () => observer.unobserve(domRef.current);
   }, []);
 	
 	return (

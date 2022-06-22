@@ -2,38 +2,49 @@
 // #        Import External Components      #
 // ##########################################
 import styled from '@emotion/styled/macro';
+import { Card, Button } from 'react-bootstrap'
+import { FaCaretRight } from 'react-icons/fa';
 
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
 import Footer from '../components/footer';
+import SlideInSection from '../components/slideInSection';
 
 // ##########################################
 // #       Component Specific Styling       #
 // ##########################################
 const PageContainer = styled.div`
+
 `;
 
-const BodyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+const HeadingContainer = styled.div`
+
+`;
+
+const ContentContainer = styled.div`
+  
 `;
 
 // ##########################################
-// #           Posts Component              #
+// #          Projects Component            #
 // ##########################################
-export default function Home() {
+export default function Projects() {
+  
   return (
     <PageContainer>
-      <Header></Header>
+    
+      <HeadingContainer>
+        <Header />      
+      </HeadingContainer>
       
-      <BodyContainer>
+      <ContentContainer>
         
-      </BodyContainer>
+      </ContentContainer>
       
-      <Footer></Footer>
+      <Footer />
+      
     </PageContainer>
   );
 }
