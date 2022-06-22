@@ -3,6 +3,7 @@
 // ##########################################
 import { useState, useRef } from 'react';
 import styled from '@emotion/styled/macro';
+import { keyframes } from '@emotion/react'
 import { Card, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faJsSquare, faHtml5, faCss3Alt, faDocker, faPython, faNodeJs, faGithub, faGitAlt, faWindows, faLinux, faBootstrap, faMdb, faAws, faJira, faFigma } from '@fortawesome/free-brands-svg-icons';
@@ -13,7 +14,20 @@ import { faReact, faJsSquare, faHtml5, faCss3Alt, faDocker, faPython, faNodeJs, 
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Player from '../components/player';
+import SkillsIcons from '../components/skillsIcons';
 import SlideInSection from '../components/slideInSection';
+
+// ##########################################
+// #           Keyframe Animations          #
+// ##########################################
+const animateColorChange = keyframes`
+	0% {
+    background-position: 0% 0%;
+  }
+	100% {
+    background-position: 0% 100%;
+  }
+`
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -24,7 +38,7 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   display: grid;
-  grid-template-areas: "Skills Model Edu" "Bio Bio Bio";
+  grid-template-areas: "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
   margin: 30px;
 `;
@@ -48,8 +62,6 @@ const Subtitle = styled.h2`
 `;
 
 const TextContainer = styled.div`
-  margin-top: 20px;
-  margin-bottom: 30px;
   text-align: center;
 `;
 
@@ -70,8 +82,12 @@ const Icon = styled.a`
   margin: 3%;
   text-decoration: none;
 	&:hover {
-		color: white;
 		transform: scale(1.25);
+    animation: ${animateColorChange} 5s linear infinite;
+		background-image: linear-gradient(0deg, hsla(0, 100%, 50%, 1) 0%, hsla(306, 100%, 50%, 1) 10%, hsla(170, 100%, 47%, 1) 20%, hsla(279, 100%, 50%, 1) 30%, hsla(248, 100%, 50%, 1) 40%, hsla(141, 100%, 50%, 1) 50%, hsla(248, 100%, 50%, 1) 60%, hsla(279, 100%, 50%, 1) 70%, hsla(170, 100%, 47%, 1) 80%, hsla(306, 100%, 50%, 1) 90%, hsla(0, 100%, 50%, 1) 100%);
+		background-size: 100% 1100%;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
 	};
 `;
 
@@ -90,12 +106,38 @@ const ModelContainer = styled.div`
 
 const EducationContainer = styled.div`
   grid-area: Edu;
-  width: 32vw;
+  width: 80%;
   justify-self: center;
+`;
+
+const EducationContentContainer = styled.div`
+  display: flex;
+  align-items: end;
+`;
+
+const SchoolContainer = styled.div`
+  width: 100%;
+  line-height: normal;
+`;
+
+const EducationImageContainer = styled.div`
+  text-align: center;
+  padding: 10px;
+`;
+
+const EducationImage = styled.img`
+  width: 50%;
 `;
 
 const BiographyContainer = styled.div`
   grid-area: Bio;
+  width: 32vw;
+  justify-self: center;
+`;
+
+const BiographyContentContainer = styled.div`
+  margin-left: 9%;
+  margin-right: 9%;
 `;
 
 // ##########################################
@@ -120,61 +162,7 @@ export default function About() {
         
         <SkillsContainer>
           <Subtitle>Skills</Subtitle>
-          <IconGroupContainer>
-            <Icon title="Amazon Web Service" href="https://aws.amazon.com/" onClick={handleIconClick}>
-              <FontAwesomeIcon icon={faAws} />
-            </Icon>
-            
-            <Icon title="Bootstrap" href="https://getbootstrap.com/" onClick={handleIconClick}>
-              <FontAwesomeIcon icon={faBootstrap} />
-            </Icon>
-            
-            <Icon title="C Programming Language" href="https://www.codecademy.com/resources/docs/c" onClick={handleIconClick}>
-              <i className="devicon-c-plain"></i>
-            </Icon>
-            
-            <Icon title="CSS (Cascading Style Sheets)" href="https://developer.mozilla.org/en-US/docs/Web/CSS" onClick={handleIconClick}>
-              <FontAwesomeIcon icon={faCss3Alt} />
-            </Icon>
-            
-            <Icon title="Docker" href="https://docs.docker.com/" onClick={handleIconClick}>
-              <FontAwesomeIcon icon={faDocker} />
-            </Icon>
-          </IconGroupContainer>
-          
-          <IconGroupContainer>
-            <Icon><FontAwesomeIcon icon={faFigma} /></Icon>
-            <Icon><FontAwesomeIcon icon={faGitAlt} /></Icon>
-            <Icon><FontAwesomeIcon icon={faGithub} /></Icon>
-            <Icon><i className="devicon-graphql-plain"></i></Icon>
-            <Icon><i className="devicon-heroku-plain"></i></Icon>
-            
-          </IconGroupContainer>
-          
-          <IconGroupContainer>
-            <Icon><FontAwesomeIcon icon={faHtml5} /></Icon>
-            <Icon><i className="devicon-java-plain"></i></Icon>
-            <Icon><FontAwesomeIcon icon={faJsSquare} /></Icon>
-            <Icon><FontAwesomeIcon icon={faJira} /></Icon>
-            <Icon><FontAwesomeIcon icon={faLinux} /></Icon>
-          </IconGroupContainer>
-          
-          <IconGroupContainer>
-            <Icon><FontAwesomeIcon icon={faMdb} /></Icon>
-            <Icon><i className="devicon-mongodb-plain"></i></Icon>
-            <Icon><i className="devicon-mysql-plain"></i></Icon>
-            <Icon><FontAwesomeIcon icon={faNodeJs} /></Icon>
-            <Icon><FontAwesomeIcon icon={faPython} /></Icon>
-          </IconGroupContainer>
-          
-          <IconGroupContainer>
-            <Icon><FontAwesomeIcon icon={faReact} /></Icon>
-            <Icon><i className="devicon-redis-plain"></i></Icon>
-            <Icon><i className="devicon-redux-plain"></i></Icon>
-            <Icon><i className="devicon-threejs-original"></i></Icon>
-            <Icon><FontAwesomeIcon icon={faWindows} /></Icon>
-          </IconGroupContainer>
-
+          <SkillsIcons />
         </SkillsContainer>
         
         <ModelContainer>
@@ -183,22 +171,44 @@ export default function About() {
         
         <EducationContainer>
           <Subtitle>Education</Subtitle>
-          <TextContainer>
-            <Text>Oregon State University</Text>
-            <Text>Bachelor of Computer Science</Text>
-            <Text>Focus: Web and Mobile</Text>
-            <Text>GPA: 3.75</Text>
-          </TextContainer>
-          <TextContainer>
-            <Text>South Albany High School</Text>
-            <Text>Honors Diploma</Text>
-            <Text>Focus: STEM</Text>
-            <Text>GPA: 4.20</Text>
-          </TextContainer>
+          
+          <EducationContentContainer>
+          
+            <SchoolContainer>
+              <EducationImageContainer>
+                <EducationImage src="images/OSU-Beavers.png" />
+              </EducationImageContainer>
+              <TextContainer>
+                <Text>Oregon State University</Text>
+                <Text>Bachelor of Computer Science</Text>
+                <Text>Focus: Web and Mobile</Text>
+                <Text>GPA: 3.75</Text>
+              </TextContainer>
+            </SchoolContainer>
+            
+            <SchoolContainer>
+              <EducationImageContainer>
+                <EducationImage src="images/SAHS-RedHawks.png" />
+              </EducationImageContainer>
+              <TextContainer>
+                <Text>South Albany High School</Text>
+                <Text>Honors Diploma</Text>
+                <Text>Focus: STEM</Text>
+                <Text>GPA: 4.20</Text>
+              </TextContainer>
+            </SchoolContainer>
+            
+          </EducationContentContainer>
+          
         </EducationContainer>
         
         <BiographyContainer>
           <Subtitle>Biography</Subtitle>
+          <BiographyContentContainer>
+            <Text>
+            I'm a full stack software developer with most of my web development experience using the MERN stack (MongoDB, Express, React, NodeJs). I'm very adaptive to new technologies and my current skillset ranges from general web design all the way to forensic analysis.
+            </Text>
+          </BiographyContentContainer>
         </BiographyContainer>
         
       </ContentContainer>
