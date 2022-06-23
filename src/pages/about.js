@@ -12,6 +12,7 @@ import { faReact, faJsSquare, faHtml5, faCss3Alt, faDocker, faPython, faNodeJs, 
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
+import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 import Player from '../components/player';
 import SkillsIcons from '../components/skillsIcons';
@@ -38,24 +39,34 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   display: grid;
-  grid-template-areas: "Skills Model Bio" "Edu Edu Edu";
+  grid-template-areas: "Header Header Header" "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
   margin: 30px;
 `;
 
-const TitleContainer = styled.div`
-
+const HeaderContainer = styled.div`
+  grid-area: Header;
+  margin-top: 45px;
+  margin-bottom: 75px;
 `;
 
-const Title = styled.h1`
-  margin-top: 100px;
+const TitleContainer = styled.div`
+  grid-area: Title;
+  margin-bottom: 45px;
+  width: 40%;
+  justify-self: center;
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
+`;
+
+const Title = styled.h2`
   color: white;
-  font-size: 5vw;
+  font-size: 3.5vw;
   text-align: center;
 `;
 
-const Subtitle = styled.h2`
-  margin-top: 30px;
+const Subtitle = styled.h3`
   color: white;
   font-size: 3vw;
   text-align: center;
@@ -95,6 +106,9 @@ const SkillsContainer = styled.div`
   grid-area: Skills;
   width: 32vw;
   justify-self: center;
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
 `;
 
 const ModelContainer = styled.div`
@@ -108,6 +122,10 @@ const EducationContainer = styled.div`
   grid-area: Edu;
   width: 80%;
   justify-self: center;
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
+  margin-top: 45px;
 `;
 
 const EducationContentContainer = styled.div`
@@ -133,11 +151,20 @@ const BiographyContainer = styled.div`
   grid-area: Bio;
   width: 32vw;
   justify-self: center;
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
 `;
 
 const BiographyContentContainer = styled.div`
   margin-left: 9%;
   margin-right: 9%;
+  margin-top: 15px;
+  text-align: center;
+`;
+
+const FooterContainer = styled.div`
+  margin-top: 55px;
 `;
 
 // ##########################################
@@ -154,11 +181,18 @@ export default function About() {
     <PageContainer>
       <Header />
       
-      <TitleContainer>
-        <Title>About Me</Title>
-      </TitleContainer>
-      
       <ContentContainer>
+        
+        <HeaderContainer>
+          <TitleBadge
+            title="Jaiden Hodson"
+            subtext={["Full Stack", "Software Developer"]}
+          />
+        </HeaderContainer>
+        
+        <TitleContainer>
+          <Title>About Me</Title>
+        </TitleContainer>
         
         <SkillsContainer>
           <Subtitle>Skills</Subtitle>
@@ -213,7 +247,10 @@ export default function About() {
         
       </ContentContainer>
       
-      <Footer />
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
+      
     </PageContainer>
   );
 }

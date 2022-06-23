@@ -45,7 +45,6 @@ const Icon = styled.a`
 
 const SkillsIconsContainer = styled.div`
   grid-area: Skills;
-  width: 32vw;
   justify-self: center;
 `;
 
