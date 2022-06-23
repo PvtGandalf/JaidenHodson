@@ -39,21 +39,24 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   display: grid;
-  grid-template-areas: "Header Header Header" "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
+  grid-template-areas: "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
-  margin: 30px;
+  margin-top: 45px;
+  margin-bottom: 45px;
   @media (max-width: 991px) {
-    grid-template-areas: "Header Header Header Header" "Title Title Title Title" "Model Bio Bio Bio" "Skills Skills Skills Skills" "Edu Edu Edu Edu";
+    grid-template-areas: "Title Title Title Title" "Model Bio Bio Bio" "Skills Skills Skills Skills" "Edu Edu Edu Edu";
     grid-template-columns: auto;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    margin-left: 30px;
+    margin-right: 30px;
 	}
 `;
 
 const HeaderContainer = styled.div`
   grid-area: Header;
-  margin-top: 45px;
-  margin-bottom: 75px;
+  margin-bottom: 45px;
   @media (max-width: 991px) {
-    margin-top: 0px;
     margin-bottom: 25px;
 	}
 `;
@@ -214,14 +217,14 @@ export default function About() {
     <PageContainer>
       <Header />
       
+      <HeaderContainer>
+        <TitleBadge
+          title="Jaiden Hodson"
+          subtext={["Full Stack", "Software Developer"]}
+        />
+      </HeaderContainer>
+      
       <ContentContainer>
-        
-        <HeaderContainer>
-          <TitleBadge
-            title="Jaiden Hodson"
-            subtext={["Full Stack", "Software Developer"]}
-          />
-        </HeaderContainer>
         
         <TitleContainer>
           <Title>About Me</Title>

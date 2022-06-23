@@ -13,7 +13,9 @@ import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope } from 'react-icons/fa';
 // #       Component Specific Styling       #
 // ##########################################
 const StyledFooter = styled.div`
-  margin: 3vw;
+  background-color: #00000035;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const SocialContainer = styled.div`

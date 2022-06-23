@@ -48,7 +48,6 @@ const CoverTextContainer = styled.div`
 	background: #00000035;
 	padding-top: 85px;
 	padding-bottom: 85px;
-	border-radius: 40px;
 `;
 
 const CoverCharacter = styled.span`
