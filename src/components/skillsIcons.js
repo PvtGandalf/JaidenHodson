@@ -28,7 +28,7 @@ const IconGroupContainer = styled.div`
 `;
 
 const Icon = styled.a`
-  font-size: calc(1vw + 1.9rem);
+  font-size: 3vw;
   display: inline-block;
   color: white;
   margin: 3%;
@@ -41,6 +41,9 @@ const Icon = styled.a`
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
 	};
+	@media (max-width: 991px) {
+    margin: 1.25%;
+	}
 `;
 
 const SkillsIconsContainer = styled.div`
@@ -78,10 +81,9 @@ export default function SkillsIcons() {
 				<Icon title="Docker" href="https://docs.docker.com/" onClick={handleIconClick}>
 					<i className="devicon-docker-plain"></i>
 				</Icon>
-			</IconGroupContainer>
 			
 			{/* Figma, Git, Github, GraphQL, Heroku */}
-			<IconGroupContainer>
+			
 				<Icon title="Figma" href="https://www.figma.com" onClick={handleIconClick}>
 					<i className="devicon-figma-plain"></i>
 				</Icon>
@@ -97,10 +99,10 @@ export default function SkillsIcons() {
 				<Icon title="Heroku" href="https://www.heroku.com" onClick={handleIconClick}>
 					<i className="devicon-heroku-plain"></i>
 				</Icon>
-			</IconGroupContainer>
+			
 			
 			{/* HTML5, Java, Javascript, Jira, Linux */}
-			<IconGroupContainer>
+			
 				<Icon title="HTML5" href="https://developer.mozilla.org/en-US/docs/Web/HTML" onClick={handleIconClick}>
 					<i className="devicon-html5-plain"></i>
 				</Icon>
@@ -116,11 +118,11 @@ export default function SkillsIcons() {
 				<Icon title="Linux" href="https://www.linux.org/" onClick={handleIconClick}>
 					<i className="devicon-linux-plain"></i>
 				</Icon>
-			</IconGroupContainer>
+			
 			
 			
 			{/* MDB, MongoDB, MySQL, NodeJs, Python */}
-			<IconGroupContainer>
+			
 				<Icon title="Material Design Bootstrap" href="https://mdbootstrap.com" onClick={handleIconClick}>
 					<i className="devicon-materialui-plain"></i>
 				</Icon>
@@ -136,10 +138,10 @@ export default function SkillsIcons() {
 				<Icon title="Python" href="https://www.python.org" onClick={handleIconClick}>
 					<i className="devicon-python-plain"></i>
 				</Icon>
-			</IconGroupContainer>
+			
 			
 			{/* React, Redis, Redux, ThreeJs, Windows */}
-			<IconGroupContainer>
+			
 				<Icon title="React" href="https://reactjs.org" onClick={handleIconClick}>
 					<i className="devicon-react-plain"></i>
 				</Icon>

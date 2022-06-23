@@ -42,12 +42,20 @@ const ContentContainer = styled.div`
   grid-template-areas: "Header Header Header" "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
   margin: 30px;
+  @media (max-width: 991px) {
+    grid-template-areas: "Header Header Header Header" "Title Title Title Title" "Model Bio Bio Bio" "Skills Skills Skills Skills" "Edu Edu Edu Edu";
+    grid-template-columns: auto;
+	}
 `;
 
 const HeaderContainer = styled.div`
   grid-area: Header;
   margin-top: 45px;
   margin-bottom: 75px;
+  @media (max-width: 991px) {
+    margin-top: 0px;
+    margin-bottom: 25px;
+	}
 `;
 
 const TitleContainer = styled.div`
@@ -58,6 +66,10 @@ const TitleContainer = styled.div`
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
+  @media (max-width: 991px) {
+    margin-bottom: 25px;
+    width: 100%;
+	}
 `;
 
 const Title = styled.h2`
@@ -109,6 +121,11 @@ const SkillsContainer = styled.div`
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px;
+	}
 `;
 
 const ModelContainer = styled.div`
@@ -126,6 +143,11 @@ const EducationContainer = styled.div`
   padding: 30px;
   border-radius: 40px;
   margin-top: 45px;
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px;
+	}
 `;
 
 const EducationContentContainer = styled.div`
@@ -154,6 +176,9 @@ const BiographyContainer = styled.div`
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
+  @media (max-width: 991px) {
+    width: auto;
+	}
 `;
 
 const BiographyContentContainer = styled.div`
@@ -161,10 +186,18 @@ const BiographyContentContainer = styled.div`
   margin-right: 9%;
   margin-top: 15px;
   text-align: center;
+  @media (max-width: 991px) {
+    width: auto;
+    height: fit-content;
+    align-self: center;
+	}
 `;
 
 const FooterContainer = styled.div`
   margin-top: 55px;
+  @media (max-width: 991px) {
+    margin-top: 0px;
+	}
 `;
 
 // ##########################################
