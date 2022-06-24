@@ -1,11 +1,7 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import { useState, useRef } from 'react';
 import styled from '@emotion/styled/macro';
-import { keyframes } from '@emotion/react'
-import { Card, Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // ##########################################
 // #        Import Local Components         #
@@ -15,19 +11,6 @@ import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 import Player from '../components/player';
 import SkillsIcons from '../components/skillsIcons';
-import SlideInSection from '../components/slideInSection';
-
-// ##########################################
-// #           Keyframe Animations          #
-// ##########################################
-const animateColorChange = keyframes`
-	0% {
-    background-position: 0% 0%;
-  }
-	100% {
-    background-position: 0% 100%;
-  }
-`
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -94,26 +77,6 @@ const Text = styled.p`
   color: white;
   font-size: 2vw;
   margin: 0;
-`;
-
-const IconGroupContainer = styled.div`
-  text-align: center;
-`;
-
-const Icon = styled.a`
-  font-size: calc(1vw + 1.9rem);
-  display: inline-block;
-  color: white;
-  margin: 3%;
-  text-decoration: none;
-	&:hover {
-		transform: scale(1.25);
-    animation: ${animateColorChange} 5s linear infinite;
-		background-image: linear-gradient(0deg, hsla(0, 100%, 50%, 1) 0%, hsla(306, 100%, 50%, 1) 10%, hsla(170, 100%, 47%, 1) 20%, hsla(279, 100%, 50%, 1) 30%, hsla(248, 100%, 50%, 1) 40%, hsla(141, 100%, 50%, 1) 50%, hsla(248, 100%, 50%, 1) 60%, hsla(279, 100%, 50%, 1) 70%, hsla(170, 100%, 47%, 1) 80%, hsla(306, 100%, 50%, 1) 90%, hsla(0, 100%, 50%, 1) 100%);
-		background-size: 100% 1100%;
-		-webkit-text-fill-color: transparent;
-		-webkit-background-clip: text;
-	};
 `;
 
 const SkillsContainer = styled.div`
@@ -206,11 +169,6 @@ const FooterContainer = styled.div`
 // #            About Component             #
 // ##########################################
 export default function About() {
-  
-  function handleIconClick(e) {
-    e.preventDefault();
-		window.open(e.currentTarget.href, '_blank');
-	}
   
   return (
     <PageContainer>
