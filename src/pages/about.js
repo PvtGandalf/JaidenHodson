@@ -6,7 +6,6 @@ import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react'
 import { Card, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faJsSquare, faHtml5, faCss3Alt, faDocker, faPython, faNodeJs, faGithub, faGitAlt, faWindows, faLinux, faBootstrap, faMdb, faAws, faJira, faFigma } from '@fortawesome/free-brands-svg-icons';
 
 // ##########################################
 // #        Import Local Components         #

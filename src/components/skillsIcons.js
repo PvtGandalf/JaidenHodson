@@ -2,7 +2,7 @@
 // #        Import External Components      #
 // ##########################################
 import styled from '@emotion/styled/macro';
-import { keyframes } from '@emotion/react'
+import { keyframes } from '@emotion/react';
 
 // ##########################################
 // #        Import Local Components         #
@@ -52,7 +52,7 @@ const SkillsIconsContainer = styled.div`
 `;
 
 // ##########################################
-// #            About Component             #
+// #         SkillsIcons Component          #
 // ##########################################
 export default function SkillsIcons() {
   
