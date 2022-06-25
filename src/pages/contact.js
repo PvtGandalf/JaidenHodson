@@ -2,15 +2,14 @@
 // #        Import External Components      #
 // ##########################################
 import styled from '@emotion/styled/macro';
-import { Card, Button } from 'react-bootstrap'
-import { FaCaretRight } from 'react-icons/fa';
 
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
+import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
-import SlideInSection from '../components/slideInSection';
+import ContactForm from '../components/contactForm';
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -19,32 +18,51 @@ const PageContainer = styled.div`
 
 `;
 
-const HeadingContainer = styled.div`
-
-`;
-
 const ContentContainer = styled.div`
-
+  text-align: -webkit-center;
+  margin: 40px;
 `;
 
+const HeaderContainer = styled.div`
+  grid-area: Header;
+  margin-bottom: 45px;
+  @media (max-width: 991px) {
+    margin-bottom: 25px;
+	}
+`;
+
+const FooterContainer = styled.div`
+  margin-top: 55px;
+  @media (max-width: 991px) {
+    margin-top: 0px;
+	}
+`;
 
 // ##########################################
-// #           Contact Component            #
+// #            Contact Component           #
 // ##########################################
-export default function Contact() {
+export default function About() {
   
   return (
     <PageContainer>
-    
-      <HeadingContainer>
-        <Header />      
-      </HeadingContainer>
+      <Header />
+      
+      <HeaderContainer>
+        <TitleBadge
+          title="Jaiden Hodson"
+          subtext={["Full Stack", "Software Developer"]}
+        />
+      </HeaderContainer>
       
       <ContentContainer>
-
+        
+        <ContactForm />
+        
       </ContentContainer>
       
-      <Footer />
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
       
     </PageContainer>
   );
