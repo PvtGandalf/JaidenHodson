@@ -46,7 +46,7 @@ export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
-  const [interested, setInterested] = useState([]);
+  const [reason, setReason] = useState('');
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
   const [show, setShow] = useState(true);
@@ -130,33 +130,6 @@ export default function ContactForm() {
       setSuccess(false);
       setFailure(false);
       
-      // Set state for text based input
-      setName(event.target.name.value);
-      setEmail(event.target.email.value);
-      setPhone(event.target.phone.value);
-      setMessage(event.target.message.value);
-      
-      // Set state for interested based on checked interests
-      setInterested(document.querySelectorAll('input[type=checkbox]:checked'));
-      
-      // Initialize interest string to empty string
-      var interestString = '';
-      
-      // Convert interest list into a string of interests
-      if (interested.length > 0) {
-        interested.forEach(item => interestString = interestString + item.name + ", ");
-      } else {
-        interestString = "Other Services";
-      }
-      
-      // Remove last comma from interest string
-      interestString = interestString.substring(0, interestString.length - 2);
-      
-      // If message is empty replace with statement
-      if (message.length === 0) {
-        setMessage("Nothing sent");
-      }
-      
 			console.log(name, email, phone, message);
 			
       // Send email using form data
@@ -183,7 +156,7 @@ export default function ContactForm() {
 			{/* Name Input Field */}
 			<StyledFormGroup className="mb-3" controlId="form.Name">
 				<StyledFormLabel>Name</StyledFormLabel>
-				<Form.Control required type="text" name="name" placeholder="Gandalf Greyhame" />
+				<Form.Control required type="text" name="name" placeholder="Gandalf Greyhame" maxLength="30" onChange={(e) => setName(e.target.value)} value={name}/>
 				<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 				<Form.Control.Feedback type="invalid">Please provide a valid name.</Form.Control.Feedback>
 			</StyledFormGroup>
@@ -191,7 +164,7 @@ export default function ContactForm() {
 			{/* Email Input Field */}
 			<StyledFormGroup className="mb-3" controlId="form.Email">
 				<StyledFormLabel>Email</StyledFormLabel>
-				<Form.Control required type="text" name="email" placeholder="gandalfthegrey@gmail.com"/>
+				<Form.Control required type="email" name="email" placeholder="gandalfthegrey@gmail.com" maxLength="50" onChange={(e) => setEmail(e.target.value)} value={email}/>
 				<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 				<Form.Control.Feedback type="invalid">Please provide a valid email.</Form.Control.Feedback>
 			</StyledFormGroup>
@@ -207,7 +180,7 @@ export default function ContactForm() {
 			{/* Reason Checkbox */}
 			<StyledFormGroup className="mb-3" controlId="form.Reason">
 				<StyledFormLabel>Reason</StyledFormLabel>
-				<Form.Select name="reason" required>
+				<Form.Select name="reason" required onChange={(e) => setReason(e.target.value)} value={reason}>
 					<option value="Default" disabled>Select a reason for contact</option>
 					<option value="Business">Business</option>
 					<option value="Personal">Personal</option>
@@ -220,7 +193,7 @@ export default function ContactForm() {
 			{/* Message Input Field */}
 			<StyledFormGroup className="mb-3" controlId="form.Message">
 				<StyledFormLabel>Message</StyledFormLabel>
-				<Form.Control required type="text" name="message" placeholder="Tell me more..."/>
+				<Form.Control required type="text" name="message" as="textarea" rows={5} placeholder="Tell me more..." maxLength="300" onChange={(e) => setMessage(e.target.value)} value={message}/>
 				<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 				<Form.Control.Feedback type="invalid">Please provide a message.</Form.Control.Feedback>
 			</StyledFormGroup>
