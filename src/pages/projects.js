@@ -144,7 +144,7 @@ export default function Projects() {
             title="Marvel Comic Wiki"
             images={["images/projects/MarvelComicWiki[CharacterSearch].jpeg", "images/projects/MarvelComicWiki[EventsInformation].jpeg"]}
             description="This service retrieves data from Marvel's Developer API and provides the user with a simple UI to traverse through Marvel's database."
-            technology={['Amazon Web Service', 'Bootstrap', 'CSS3', 'HTML5', 'Javascript', 'Material Design Bootstrap', 'React']}
+            technology={['AWS', 'Bootstrap', 'CSS3', 'HTML5', 'Javascript', 'MaterialUI', 'React']}
             demo="https://main.d1c9vulyxwkdj2.amplifyapp.com/"
             code="https://github.com/PvtGandalf/MarvelComicWiki"
           />
@@ -152,7 +152,7 @@ export default function Projects() {
             title="Whole Body Health"
             images={["images/projects/WBH[OneBlog].jpeg", "images/projects/WBH[AllBlogs].jpeg"]}
             description="This website uses my personally designed API to pull data into the UI that dynamically adjusts to its content."
-            technology={['Amazon Web Service', 'Bootstrap', 'CSS3', 'Docker', 'HTML5', 'Javascript', 'Material Design Bootstrap', 'MongoDB', 'NodeJs', 'React']}
+            technology={['AWS', 'Bootstrap', 'CSS3', 'Docker', 'HTML5', 'Javascript', 'MaterialUI', 'MongoDB', 'NodeJs', 'React']}
             demo="https://main.d3s3bgzi9y4jfb.amplifyapp.com/"
           />
           <Project

@@ -1,0 +1,131 @@
+{
+    "main": {
+        "skills": [
+            {
+                "skill_name": "AWS",
+                "skill_reference": "https://aws.amazon.com",
+								"skill_icon_name": "devicon-amazonwebservices-original"
+            },
+						{
+                "skill_name": "Bash",
+                "skill_reference": "https://devdocs.io/bash/",
+								"skill_icon_name": "devicon-bash-plain"
+            },
+            {
+                "skill_name": "Bootstrap",
+                "skill_reference": "https://getbootstrap.com/",
+								"skill_icon_name": "devicon-bootstrap-plain"
+            },
+						{
+                "skill_name": "C",
+                "skill_reference": "https://www.codecademy.com/resources/docs/c",
+								"skill_icon_name": "devicon-c-plain"
+            },
+            {
+                "skill_name": "CSS3",
+                "skill_reference": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+								"skill_icon_name": "devicon-css3-plain"
+            },
+						{
+                "skill_name": "Docker",
+                "skill_reference": "https://docs.docker.com/",
+								"skill_icon_name": "devicon-docker-plain"
+            },
+						{
+                "skill_name": "Express",
+                "skill_reference": "expressjs.com",
+								"skill_icon_name": "devicon-express-original"
+            },	
+            {
+                "skill_name": "Figma",
+                "skill_reference": "https://www.figma.com",
+								"skill_icon_name": "devicon-figma-plain"
+            },
+						{
+                "skill_name": "Git",
+                "skill_reference": "https://git-scm.com/docs",
+								"skill_icon_name": "devicon-git-plain"
+            },
+						{
+                "skill_name": "GraphQL",
+                "skill_reference": "https://graphql.org",
+								"skill_icon_name": "devicon-graphql-plain"
+            },
+            {
+                "skill_name": "Heroku",
+                "skill_reference": "https://www.heroku.com",
+								"skill_icon_name": "devicon-heroku-plain"
+            },
+						{
+                "skill_name": "HTML5",
+                "skill_reference": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+								"skill_icon_name": "devicon-html5-plain"
+            },
+            {
+                "skill_name": "Java",
+                "skill_reference": "https://docs.oracle.com/en/java/",
+								"skill_icon_name": "devicon-java-plain"
+            },
+						{
+                "skill_name": "Javascript",
+                "skill_reference": "https://developer.mozilla.org/en-US/docs/Web/javascript",
+								"skill_icon_name": "devicon-javascript-plain"
+            },
+            {
+                "skill_name": "Jira",
+                "skill_reference": "https://www.atlassian.com/software/jira",
+								"skill_icon_name": "devicon-jira-plain"
+            },
+						{
+                "skill_name": "MaterialUI",
+                "skill_reference": "https://mdbootstrap.com",
+								"skill_icon_name": "devicon-materialui-plain"
+            },
+            {
+                "skill_name": "MongoDB",
+                "skill_reference": "https://www.mongodb.com",
+								"skill_icon_name": "devicon-mongodb-plain"
+            },
+						{
+                "skill_name": "MySQL",
+                "skill_reference": "https://www.mysql.com",
+								"skill_icon_name": "devicon-mysql-plain"
+            },
+            {
+                "skill_name": "NodeJs",
+                "skill_reference": "https://nodejs.org",
+								"skill_icon_name": "devicon-nodejs-plain"
+            },
+						{
+                "skill_name": "OpenGL",
+                "skill_reference": "https://www.khronos.org/api/opengl",
+								"skill_icon_name": "devicon-opengl-plain"
+            },
+						{
+                "skill_name": "Python",
+                "skill_reference": "https://www.python.org",
+								"skill_icon_name": "devicon-python-plain"
+            },
+            {
+                "skill_name": "React",
+                "skill_reference": "https://reactjs.org",
+								"skill_icon_name": "devicon-react-plain"
+            },
+						{
+                "skill_name": "Redis",
+                "skill_reference": "https://redis.io",
+								"skill_icon_name": "devicon-redis-plain"
+            },
+            {
+                "skill_name": "Redux",
+                "skill_reference": "https://redux.js.org",
+								"skill_icon_name": "devicon-redux-plain"
+            },
+						{
+                "skill_name": "ThreeJs",
+                "skill_reference": "https://threejs.org",
+								"skill_icon_name": "devicon-threejs-original"
+            }
+        ]
+    }
+}

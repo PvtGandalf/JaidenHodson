@@ -77,6 +77,9 @@ const Text = styled.p`
   color: white;
   font-size: 2vw;
   margin: 0;
+  @media (max-width: 991px) {
+    font-size: 2.4vw;
+	}
 `;
 
 const SkillsContainer = styled.div`
@@ -120,9 +123,13 @@ const EducationContentContainer = styled.div`
   align-items: end;
 `;
 
-const SchoolContainer = styled.div`
+const SchoolContainer = styled.a`
   width: 100%;
   line-height: normal;
+  text-decoration: none;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const EducationImageContainer = styled.div`
@@ -201,7 +208,7 @@ export default function About() {
           
           <EducationContentContainer>
           
-            <SchoolContainer>
+            <SchoolContainer href="https://oregonstate.edu">
               <EducationImageContainer>
                 <EducationImage src="images/OSU-Beavers.png" />
               </EducationImageContainer>
@@ -213,7 +220,7 @@ export default function About() {
               </TextContainer>
             </SchoolContainer>
             
-            <SchoolContainer>
+            <SchoolContainer href="https://sahs.albany.k12.or.us">
               <EducationImageContainer>
                 <EducationImage src="images/SAHS-RedHawks.png" />
               </EducationImageContainer>

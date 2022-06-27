@@ -20,7 +20,6 @@ const PageContainer = styled.div`
 
 const ContentContainer = styled.div`
   text-align: -webkit-center;
-  margin: 40px;
 `;
 
 const HeaderContainer = styled.div`
@@ -29,6 +28,25 @@ const HeaderContainer = styled.div`
   @media (max-width: 991px) {
     margin-bottom: 25px;
 	}
+`;
+
+const TitleContainer = styled.div`
+  grid-area: Title;
+  width: 40%;
+  justify-self: center;
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
+  @media (max-width: 991px) {
+    margin-bottom: 25px;
+    width: 100%;
+	}
+`;
+
+const Title = styled.h2`
+  color: white;
+  font-size: 3.5vw;
+  text-align: center;
 `;
 
 const FooterContainer = styled.div`
@@ -55,6 +73,10 @@ export default function About() {
       </HeaderContainer>
       
       <ContentContainer>
+        
+        <TitleContainer>
+          <Title>Contact Me</Title>
+        </TitleContainer>
         
         <ContactForm />
         

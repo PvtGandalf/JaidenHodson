@@ -17,7 +17,11 @@ const PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY;
 // #       Component Specific Styling       #
 // ##########################################
 const StyledForm = styled(Form)`
-  width: 80%;
+  width: 45%;
+	margin: 40px;
+	background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
 `
 
 const StyledFormGroup = styled(Form.Group)`

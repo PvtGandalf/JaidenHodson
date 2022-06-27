@@ -1,6 +1,7 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
+import { useState } from 'react';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
 import { Button as BootstrapButton } from 'react-bootstrap'
@@ -8,6 +9,7 @@ import { Button as BootstrapButton } from 'react-bootstrap'
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
+import IconLibrary from '../utilities/iconLibrary.json';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -101,6 +103,11 @@ const Icon = styled.a`
 	}
 `;
 
+const IconText = styled.p`
+  font-size: 1vw;
+  color: white;
+`;
+
 const ButtonsContainer = styled.div`
 	display: flex;
   justify-content: space-evenly;
@@ -125,33 +132,6 @@ const Button = styled(BootstrapButton)`
 // ##########################################
 export default function Project(props) {
 	
-	const techLibrary = new Map();
-		
-	techLibrary.set('Amazon Web Service', {reference: 'https://reactjs.org', icon: 'devicon-amazonwebservices-original'});
-	techLibrary.set('Bootstrap', {reference: 'https://getbootstrap.com/', icon: 'devicon-bootstrap-plain'});
-	techLibrary.set('C', {reference: 'https://www.codecademy.com/resources/docs/c', icon: 'devicon-c-plain'});
-	techLibrary.set('CSS3', {reference: 'https://developer.mozilla.org/en-US/docs/Web/CSS', icon: 'devicon-css3-plain'});
-	techLibrary.set('Docker', {reference: 'https://docs.docker.com/', icon: 'devicon-docker-plain'});
-	techLibrary.set('Figma', {reference: 'https://www.figma.com', icon: 'devicon-figma-plain'});
-	techLibrary.set('Git', {reference: 'https://git-scm.com/docs', icon: 'devicon-git-plain'});
-	techLibrary.set('Github', {reference: 'https://github.com', icon: 'devicon-github-plain'});
-	techLibrary.set('GraphQL', {reference: 'https://graphql.org', icon: 'devicon-graphql-plain'});
-	techLibrary.set('Heroku', {reference: 'https://www.heroku.com', icon: 'devicon-heroku-plain'});
-	techLibrary.set('HTML5', {reference: 'https://developer.mozilla.org/en-US/docs/Web/HTML', icon: 'devicon-html5-plain'});
-	techLibrary.set('Java', {reference: 'https://docs.oracle.com/en/java/', icon: 'devicon-java-plain'});
-	techLibrary.set('Javascript', {reference: 'https://developer.mozilla.org/en-US/docs/Web/javascript', icon: 'devicon-javascript-plain'});
-	techLibrary.set('Jira', {reference: 'https://www.atlassian.com/software/jira', icon: 'devicon-jira-plain'});
-	techLibrary.set('Material Design Bootstrap', {reference: 'https://mdbootstrap.com', icon: 'devicon-materialui-plain'});
-	techLibrary.set('MongoDB', {reference: 'https://www.mongodb.com', icon: 'devicon-mongodb-plain'});
-	techLibrary.set('MySQL', {reference: 'https://www.mysql.com', icon: 'devicon-mysql-plain'});
-	techLibrary.set('NodeJs', {reference: 'https://nodejs.org', icon: 'devicon-nodejs-plain'});
-	techLibrary.set('Python', {reference: 'https://www.python.org', icon: 'devicon-python-plain'});
-	techLibrary.set('React', {reference: 'https://reactjs.org', icon: 'devicon-react-plain'});
-	techLibrary.set('Redis', {reference: 'https://redis.io', icon: 'devicon-redis-plain'});
-	techLibrary.set('Redux', {reference: 'https://redux.js.org', icon: 'devicon-redux-plain'});
-	techLibrary.set('ThreeJs', {reference: 'https://threejs.org', icon: 'devicon-threejs-plain'});
-	techLibrary.set('Windows', {reference: 'https://www.microsoft.com/en-us/windows', icon: 'devicon-windows-plain'});
-	
   return (
 		<ProjectContainer>
 
@@ -172,11 +152,17 @@ export default function Project(props) {
 			</DescriptionContainer>
 			
 			<TechnologyContainer>
-				{props.technology.map((skill, idx) =>
-					<Icon key={skill} title={skill} href={techLibrary.get(skill).reference}>
-						<i className={techLibrary.get(skill).icon}></i>
-					</Icon>
-				)}
+				{props.technology.map((skill, idx) => {
+					const currentIcon = (IconLibrary.main.skills.find(item => item.skill_name === skill));
+					
+					return (
+						<Icon key={currentIcon.skill_name} title={currentIcon.skill_name} href={currentIcon.skill_reference}>
+							<i className={currentIcon.skill_icon_name}></i>
+							<IconText>{currentIcon.skill_name}</IconText>
+						</Icon>
+					);
+					
+				})}
 			</TechnologyContainer>
 			
 			<ButtonsContainer>
