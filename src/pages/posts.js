@@ -6,6 +6,7 @@ import styled from '@emotion/styled/macro';
 import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
 import { useQueryClient, useQuery } from 'react-query';
+import { useParams } from "react-router-dom";
 
 // ##########################################
 // #        Import Local Components         #
@@ -15,7 +16,7 @@ import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 
 // ##########################################
-// #         Dev API Key and User ID        #
+// #               Dev User ID              #
 // ##########################################
 const DEV_API_KEY = process.env.REACT_APP_DEV_API_KEY;
 const DEV_USER_ID = process.env.REACT_APP_DEV_USER_ID;
@@ -93,6 +94,18 @@ const FooterContainer = styled.div`
 // ##########################################
 export default function Posts(props) {
   
+  const postPathTitle = useParams().path;
+  
+  const postUrl = `https://dev.to/api/articles/${DEV_USER_ID}/${postPathTitle}`;
+
+  const { isLoading, error, data } = useQuery('blogData', () =>
+    fetch(postUrl, {
+      method: 'GET',
+    }).then(res =>
+      res.json()
+    )
+  );
+  
   return (
     <PageContainer>
       <Header />
@@ -106,9 +119,13 @@ export default function Posts(props) {
       
       <ContentContainer>
       
-        <TitleContainer>
-          <Title>Post Title Here</Title>
-        </TitleContainer>
+        {isLoading ? ( <p>Fetching data...</p> ) : (
+          
+          <TitleContainer>
+            <Title>{data.title}</Title>
+          </TitleContainer>
+          
+        )}
         
       </ContentContainer>
       
