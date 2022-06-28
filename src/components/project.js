@@ -1,7 +1,6 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import { useState } from 'react';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
 import { Button as BootstrapButton } from 'react-bootstrap'
@@ -45,10 +44,6 @@ const ImagesContainer = styled.div`
 	margin: 10px;
 `;
 
-const ImageContainer = styled.div`
-	display: flex;
-`;
-
 const Image = styled.img`
   width: 100%;
 	border-radius: 5px;
@@ -76,10 +71,6 @@ const TechnologyContainer = styled.div`
 	text-align: center;
 	align-self: center;
 	width: 75%;
-`;
-
-const IconContainer = styled.div`
-	
 `;
 
 const Icon = styled.a`

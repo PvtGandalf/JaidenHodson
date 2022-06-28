@@ -1,7 +1,7 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope, FaBook, FaDownload} from 'react-icons/fa';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react'
@@ -133,7 +133,6 @@ export default function Cover(props) {
 	
 	const resumeDownloadLink = 'https://drive.google.com/file/d/1TcNxx0coo2Wiro90i2QdklgE3CRUWh8G/view?usp=sharing';
 	
-	const [contentMarginTop, setContentMarginTop] = useState(window.innerWidth * 2 / 3);
 	const [showResumeModal, setShowResumeModal] = useState(false);
 	
 	function stringToCoverCharacter(string) {

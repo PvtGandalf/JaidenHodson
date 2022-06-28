@@ -4,7 +4,6 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import styled from '@emotion/styled/macro';
 
 // ##########################################
 // #        Import Local Components         #

@@ -1,7 +1,7 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope, FaBook, FaDownload} from 'react-icons/fa';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react'

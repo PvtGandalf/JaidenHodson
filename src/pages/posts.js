@@ -6,7 +6,7 @@ import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
-import parse, { domToReact, htmlToDOM } from 'html-react-parser';
+import ReactMarkdown from 'react-markdown';
 
 // ##########################################
 // #        Import Local Components         #
@@ -41,13 +41,12 @@ const ContentContainer = styled.div`
 
 const TitleContainer = styled.div`
   margin-bottom: 45px;
-  width: 40%;
+  width: fit-content;
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
   @media (max-width: 991px) {
     margin-bottom: 25px;
-    width: 100%;
 	}
 `;
 
@@ -55,6 +54,13 @@ const Title = styled.h2`
   color: white;
   font-size: 3.5vw;
   text-align: center;
+`;
+
+const CoverImage = styled.img`
+	width: 100%;
+  padding: 30px;
+  border-radius: 35px;
+  margin-bottom: 10px;
 `;
 
 const BodyContainer = styled.div`
@@ -65,6 +71,15 @@ const BodyContainer = styled.div`
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
+`;
+
+const MarkdownContainer = styled.div`
+  text-align: -webkit-center;
+`;
+
+const Text = styled.p`
+  width: 90%;
+  text-align: start;
 `;
 
 const FooterContainer = styled.div`
@@ -91,25 +106,7 @@ export default function Posts(props) {
     )
   );
   
-  const options = {
-    replace: ({ attribs, children }) => {
-      if (!attribs) {
-        return;
-      }
-
-      if (attribs.id === 'p') {
-        return <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>;
-      }
-
-      if (attribs.class === 'prettify') {
-        return (
-          <span style={{ color: 'hotpink' }}>
-            {domToReact(children, options)}
-          </span>
-        );
-      }
-    }
-  };
+  console.log(data);
   
   return (
     <PageContainer>
@@ -131,7 +128,18 @@ export default function Posts(props) {
             </TitleContainer>
             
             <BodyContainer>
-              {parse(data.body_html)}
+              <CoverImage src={data.cover_image} />
+              
+              <MarkdownContainer>
+                <ReactMarkdown
+                  components={{
+                    p: Text
+                  }}
+                >
+                  {data.body_markdown.split('---')[2]}
+                </ReactMarkdown>
+              </MarkdownContainer>
+
             </BodyContainer>
           
           </ContentContainer>

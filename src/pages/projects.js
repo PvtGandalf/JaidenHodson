@@ -1,11 +1,7 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import { useState, useRef } from 'react';
 import styled from '@emotion/styled/macro';
-import { keyframes } from '@emotion/react';
-import { Card, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // ##########################################
 // #        Import Local Components         #
@@ -14,19 +10,6 @@ import Header from '../components/header';
 import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 import Project from '../components/project';
-import SlideInSection from '../components/slideInSection';
-
-// ##########################################
-// #           Keyframe Animations          #
-// ##########################################
-const animateColorChange = keyframes`
-	0% {
-    background-position: 0% 0%;
-  }
-	100% {
-    background-position: 0% 100%;
-  }
-`
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -77,22 +60,6 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const Subtitle = styled.h3`
-  color: white;
-  font-size: 3vw;
-  text-align: center;
-`;
-
-const TextContainer = styled.div`
-  text-align: center;
-`;
-
-const Text = styled.p`
-  color: white;
-  font-size: 2vw;
-  margin: 0;
-`;
-
 const ProjectsContainer = styled.div`
   grid-area: Projects;
   display: grid;
@@ -116,11 +83,6 @@ const FooterContainer = styled.div`
 // #           Projects Component           #
 // ##########################################
 export default function Projects() {
-  
-  function handleIconClick(e) {
-    e.preventDefault();
-		window.open(e.currentTarget.href, '_blank');
-	}
   
   return (
     <PageContainer>
