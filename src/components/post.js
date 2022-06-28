@@ -3,6 +3,7 @@
 // ##########################################
 import { useState } from 'react';
 import styled from '@emotion/styled/macro';
+import { Button } from 'react-bootstrap'
 
 // ##########################################
 // #        Import Local Components         #
@@ -16,10 +17,10 @@ const PostContainer = styled.div`
   padding: 30px;
   border-radius: 40px;
 	display: grid;
-	grid-template-areas: "Date Date" "Title Cover" "Description Cover"  "Tags Cover";
+	grid-template-areas: "Date Date" "Title Cover" "Description Cover"  "Bottom Bottom";
 	grid-template-columns: auto;
 	@media (max-width: 991px) {
-		grid-template-areas: "Date" "Title" "Cover" "Description" "Tags";
+		grid-template-areas: "Date" "Title" "Cover" "Description" "Bottom";
 	}
 `;
 
@@ -90,6 +91,25 @@ const CoverImage = styled.img`
 	}
 `;
 
+const Bottom = styled.div`
+	display: grid;
+	grid-area: Bottom;
+	grid-template-areas: "Tags Button";
+	grid-template-columns: auto;
+`;
+
+const ButtonContainer = styled.div`
+	grid-area: Button;
+	align-self: end;
+  justify-self: end;
+`;
+
+const StyledButton = styled(Button)`
+	font-size: 1.5vw;
+	margin-right: 20px;
+	margin-bottom: 10px;
+`;
+
 // ##########################################
 // #             Post Component             #
 // ##########################################
@@ -113,11 +133,19 @@ export default function Post(props) {
 				</Description>
 			</DescriptionContainer>			
 			
-			<TagsContainer>
-				{props.tags.map((tag, tagIdx) =>
-					<Tag>{tag}</Tag>
-				)}
-			</TagsContainer>
+			<Bottom>
+			
+				<TagsContainer>
+					{props.tags.map((tag, tagIdx) =>
+						<Tag>{tag}</Tag>
+					)}
+				</TagsContainer>
+				
+				<ButtonContainer>
+					<StyledButton>View Post ></StyledButton>
+				</ButtonContainer>
+			
+			</Bottom>
 			
 		</PostContainer>
 
