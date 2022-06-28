@@ -7,6 +7,7 @@ import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
 import { useQueryClient, useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
+import parse, { domToReact, htmlToDOM, Element } from 'html-react-parser';
 
 // ##########################################
 // #        Import Local Components         #
@@ -28,20 +29,6 @@ const PageContainer = styled.div`
 
 `;
 
-const ContentContainer = styled.div`
-  display: grid;
-  grid-template-areas: "Title" "Posts";
-	grid-template-columns: auto;
-  margin-top: 45px;
-  margin-bottom: 45px;
-  @media (max-width: 991px) {
-    margin-top: 45px;
-    margin-bottom: 45px;
-    margin-left: 30px;
-    margin-right: 30px;
-	}
-`;
-
 const HeaderContainer = styled.div`
   grid-area: Header;
   margin-bottom: 45px;
@@ -50,11 +37,13 @@ const HeaderContainer = styled.div`
 	}
 `;
 
+const ContentContainer = styled.div`
+  text-align: -webkit-center;
+`;
+
 const TitleContainer = styled.div`
-  grid-area: Title;
   margin-bottom: 45px;
   width: 40%;
-  justify-self: center;
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
@@ -70,22 +59,20 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const PostsContainer = styled.div`
-  grid-area: Posts;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 50px;
+const BodyContainer = styled.div`
+  color: white;
+  text-align: start;
   margin-left: 50px;
   margin-right: 50px;
-  @media (max-width: 991px) {
-    grid-template-columns: 1fr;
-	}
+  background: #00000035;
+  padding: 30px;
+  border-radius: 40px;
 `;
 
 const FooterContainer = styled.div`
   margin-top: 55px;
   @media (max-width: 991px) {
-    margin-top: 0px;
+    margin-top: 45px;
 	}
 `;
 
@@ -106,6 +93,26 @@ export default function Posts(props) {
     )
   );
   
+  const options = {
+    replace: ({ attribs, children }) => {
+      if (!attribs) {
+        return;
+      }
+
+      if (attribs.id === 'p') {
+        return <h1 style={{ fontSize: 42 }}>{domToReact(children, options)}</h1>;
+      }
+
+      if (attribs.class === 'prettify') {
+        return (
+          <span style={{ color: 'hotpink' }}>
+            {domToReact(children, options)}
+          </span>
+        );
+      }
+    }
+  };
+  
   return (
     <PageContainer>
       <Header />
@@ -117,17 +124,21 @@ export default function Posts(props) {
         />
       </HeaderContainer>
       
-      <ContentContainer>
-      
         {isLoading ? ( <p>Fetching data...</p> ) : (
           
-          <TitleContainer>
-            <Title>{data.title}</Title>
-          </TitleContainer>
+          <ContentContainer>
+          
+            <TitleContainer>
+              <Title>{data.title}</Title>
+            </TitleContainer>
+            
+            <BodyContainer>
+              {parse(data.body_html)}
+            </BodyContainer>
+          
+          </ContentContainer>
           
         )}
-        
-      </ContentContainer>
       
       <FooterContainer>
         <Footer />
