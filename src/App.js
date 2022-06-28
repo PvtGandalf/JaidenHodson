@@ -5,6 +5,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import Projects from './pages/projects';
 import Blog from './pages/blog';
+import Posts from './pages/posts';
 import Contact from './pages/contact';
 import Error from './pages/error';
 
@@ -14,6 +15,7 @@ const App = () => useRoutes([
     { path: "/about", element: <About /> },
     { path: "/projects", element: <Projects /> },
     { path: "/blog", element: <Blog /> },
+    { path: "/blog/posts/:path", element: <Posts /> },
     { path: "/contact", element: <Contact /> },
     { path: "*", element: <Error /> }
   ]);

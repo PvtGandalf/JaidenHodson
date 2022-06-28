@@ -3,7 +3,7 @@
 // ##########################################
 import { useState } from 'react';
 import styled from '@emotion/styled/macro';
-import { Card, Button } from 'react-bootstrap'
+import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
 import { useQueryClient, useQuery } from 'react-query';
 
@@ -13,8 +13,6 @@ import { useQueryClient, useQuery } from 'react-query';
 import Header from '../components/header';
 import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
-import Post from '../components/post';
-import SlideInSection from '../components/slideInSection';
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -85,26 +83,9 @@ const FooterContainer = styled.div`
 `;
 
 // ##########################################
-// #             Blog Component             #
+// #             Posts Component            #
 // ##########################################
-export default function Blog() {
-  
-  const userId = 'PvtGandalf';
-  
-  const blogUrl = 'https://dev.to/api/articles/me/published';
-  
-  const { isLoading, error, data } = useQuery('blogData', () =>
-    fetch(blogUrl, {
-      method: 'GET',
-      headers: {
-        "api-key": "Jx6nv5hSBVaK5uXeEhzJpGEo"
-      }
-    }).then(res =>
-      res.json()
-    )
-  );
-  
-  console.log(data);
+export default function Posts(props) {
   
   return (
     <PageContainer>
@@ -120,34 +101,8 @@ export default function Blog() {
       <ContentContainer>
       
         <TitleContainer>
-          <Title>My Blog</Title>
+          <Title>Post Title Here</Title>
         </TitleContainer>
-      
-        <PostsContainer>
-      
-          {isLoading ? ( <p>Fetching data...</p> ) : (
-        
-            data.map((post, postIdx) => {
-              
-              const options = { year: 'numeric', month: 'long', day: 'numeric' };
-              const published = new Date(post.published_at).toLocaleDateString(undefined, options);
-            
-              return (
-                <Post
-                  title={post.title}
-                  description={post.description}
-                  tags={post.tag_list}
-                  publicationDate={published}
-                  cover={post.cover_image}
-                  slug={post.slug}
-                />
-              );
-              
-            })
-            
-          )}
-        
-        </PostsContainer>
         
       </ContentContainer>
       

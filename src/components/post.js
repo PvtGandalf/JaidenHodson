@@ -142,7 +142,7 @@ export default function Post(props) {
 				</TagsContainer>
 				
 				<ButtonContainer>
-					<StyledButton>View Post ></StyledButton>
+					<StyledButton href={"./blog/posts/" + props.slug}>View Post ></StyledButton>
 				</ButtonContainer>
 			
 			</Bottom>
