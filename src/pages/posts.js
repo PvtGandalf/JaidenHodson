@@ -1,13 +1,12 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import { useState } from 'react';
 import styled from '@emotion/styled/macro';
 import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
-import { useQueryClient, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
-import parse, { domToReact, htmlToDOM, Element } from 'html-react-parser';
+import parse, { domToReact, htmlToDOM } from 'html-react-parser';
 
 // ##########################################
 // #        Import Local Components         #
@@ -19,7 +18,6 @@ import Footer from '../components/footer';
 // ##########################################
 // #               Dev User ID              #
 // ##########################################
-const DEV_API_KEY = process.env.REACT_APP_DEV_API_KEY;
 const DEV_USER_ID = process.env.REACT_APP_DEV_USER_ID;
 
 // ##########################################
@@ -85,7 +83,7 @@ export default function Posts(props) {
   
   const postUrl = `https://dev.to/api/articles/${DEV_USER_ID}/${postPathTitle}`;
 
-  const { isLoading, error, data } = useQuery('blogData', () =>
+  const { isLoading, data } = useQuery('postData', () =>
     fetch(postUrl, {
       method: 'GET',
     }).then(res =>

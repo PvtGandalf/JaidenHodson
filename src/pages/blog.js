@@ -1,11 +1,8 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
-import { useState } from 'react';
 import styled from '@emotion/styled/macro';
-import { Card, Button } from 'react-bootstrap'
-import { FaCaretRight } from 'react-icons/fa';
-import { useQueryClient, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 
 // ##########################################
 // #        Import Local Components         #
@@ -14,7 +11,6 @@ import Header from '../components/header';
 import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 import Post from '../components/post';
-import SlideInSection from '../components/slideInSection';
 
 // ##########################################
 // #              Dev API Key               #
@@ -96,16 +92,17 @@ export default function Blog() {
   
   const blogUrl = 'https://dev.to/api/articles/me/published';
   
-  const { isLoading, error, data } = useQuery('blogData', () =>
-    fetch(blogUrl, {
+  const fetchBlogData = async () => {
+    const res = await fetch(blogUrl, {
       method: 'GET',
       headers: {
         "api-key": DEV_API_KEY
       }
-    }).then(res =>
-      res.json()
-    )
-  );
+    })
+    return res.json();
+  }
+
+  const { isLoading, isError, data } = useQuery('blogData', () => fetchBlogData());
   
   return (
     <PageContainer>
@@ -126,7 +123,11 @@ export default function Blog() {
       
         <PostsContainer>
       
-          {isLoading ? ( <p>Fetching data...</p> ) : (
+          {isLoading ? (
+              <p>Fetching data...</p>
+            ) : isError ? (
+              <p>An error occured while fetching blog data</p>
+            ) : (
         
             data.map((post, postIdx) => {
               
