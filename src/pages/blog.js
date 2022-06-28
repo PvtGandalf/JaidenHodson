@@ -17,6 +17,11 @@ import Post from '../components/post';
 import SlideInSection from '../components/slideInSection';
 
 // ##########################################
+// #              Dev API Key               #
+// ##########################################
+const DEV_API_KEY = process.env.REACT_APP_DEV_API_KEY;
+
+// ##########################################
 // #       Component Specific Styling       #
 // ##########################################
 const PageContainer = styled.div`
@@ -89,22 +94,18 @@ const FooterContainer = styled.div`
 // ##########################################
 export default function Blog() {
   
-  const userId = 'PvtGandalf';
-  
   const blogUrl = 'https://dev.to/api/articles/me/published';
   
   const { isLoading, error, data } = useQuery('blogData', () =>
     fetch(blogUrl, {
       method: 'GET',
       headers: {
-        "api-key": "Jx6nv5hSBVaK5uXeEhzJpGEo"
+        "api-key": DEV_API_KEY
       }
     }).then(res =>
       res.json()
     )
   );
-  
-  console.log(data);
   
   return (
     <PageContainer>
@@ -134,6 +135,7 @@ export default function Blog() {
             
               return (
                 <Post
+                  key={post.title}
                   title={post.title}
                   description={post.description}
                   tags={post.tag_list}

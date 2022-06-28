@@ -137,7 +137,7 @@ export default function Post(props) {
 			
 				<TagsContainer>
 					{props.tags.map((tag, tagIdx) =>
-						<Tag>{tag}</Tag>
+						<Tag key={tag}>{tag}</Tag>
 					)}
 				</TagsContainer>
 				

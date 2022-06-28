@@ -15,6 +15,12 @@ import TitleBadge from '../components/titleBadge';
 import Footer from '../components/footer';
 
 // ##########################################
+// #         Dev API Key and User ID        #
+// ##########################################
+const DEV_API_KEY = process.env.REACT_APP_DEV_API_KEY;
+const DEV_USER_ID = process.env.REACT_APP_DEV_USER_ID;
+
+// ##########################################
 // #       Component Specific Styling       #
 // ##########################################
 const PageContainer = styled.div`
