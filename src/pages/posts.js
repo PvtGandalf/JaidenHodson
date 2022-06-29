@@ -77,9 +77,34 @@ const MarkdownContainer = styled.div`
   text-align: -webkit-center;
 `;
 
+const Subtitle = styled.h3`
+  margin-top: 60px;
+  text-align: start;
+  width: 90%;
+`;
+
 const Text = styled.p`
   width: 90%;
   text-align: start;
+`;
+
+
+const Image = styled.img`
+  width: 100%;
+  border-radius: 10px;
+`;
+
+const CodeContainer = styled.pre`
+  background-color: #111a21;
+  width: fit-content;
+  padding: 10px;
+  text-align: start;
+  margin-right: auto;
+  margin-left: 5%;
+`;
+
+const Code = styled.code`
+  
 `;
 
 const FooterContainer = styled.div`
@@ -129,11 +154,15 @@ export default function Posts(props) {
             
             <BodyContainer>
               <CoverImage src={data.cover_image} />
-              
+
               <MarkdownContainer>
                 <ReactMarkdown
                   components={{
-                    p: Text
+                    h3: Subtitle,
+                    p: Text,
+                    img: Image,
+                    pre: CodeContainer,
+                    code: Code
                   }}
                 >
                   {data.body_markdown.split('---')[2]}
