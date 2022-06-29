@@ -96,15 +96,18 @@ const Image = styled.img`
 
 const CodeContainer = styled.pre`
   background-color: #111a21;
-  width: fit-content;
+  width: 90%;
   padding: 10px;
   text-align: start;
-  margin-right: auto;
-  margin-left: 5%;
 `;
 
 const Code = styled.code`
   
+`;
+
+const Embed = styled.iframe`
+  width: 90%;
+  height: 30vw;
 `;
 
 const FooterContainer = styled.div`
@@ -130,8 +133,6 @@ export default function Posts(props) {
       res.json()
     )
   );
-  
-  console.log(data);
   
   return (
     <PageContainer>
@@ -159,10 +160,19 @@ export default function Posts(props) {
                 <ReactMarkdown
                   components={{
                     h3: Subtitle,
-                    p: Text,
                     img: Image,
                     pre: CodeContainer,
-                    code: Code
+                    code: Code,
+                    p: ({ children }) => {
+                      if (children[0].startsWith('{% embed')) {
+                          const embedLink = children[0].split(' ')[2];
+                          return (
+                            <Embed src={embedLink} />
+                          );
+                      }
+                      // Return default child if it's not an embed
+                      return <Text>{children}</Text>;
+                  }
                   }}
                 >
                   {data.body_markdown.split('---')[2]}
