@@ -11,6 +11,7 @@ import { Modal, Button } from 'react-bootstrap'
 // #        Import Local Components         #
 // ##########################################
 import Resume from '../components/resume';
+import ResumePdf from '../pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -39,24 +40,15 @@ const animateBounce = keyframes`
 // ##########################################
 // #       Component Specific Styling       #
 // ##########################################
-const CoverContainer = styled.div`
+const TitleBadgeContainer = styled.div`
 	width: -webkit-fill-available;
-	position: absolute;
-`;
-
-const StyledImage = styled.img`
-	width: -webkit-fill-available;
-	position: absolute;
-	z-index: -1;
+  text-align: -webkit-center;
 `;
 
 const CoverTextContainer = styled.div`
-  background: #00000075;
-	width: fit-content;
-	margin-left: 27%;
-	margin-top: max(23vw, 120px);
-	padding: 14px;
-	border-radius: 6px;
+	background: #00000035;
+	padding-top: 85px;
+	padding-bottom: 85px;
 `;
 
 const CoverCharacter = styled.span`
@@ -121,6 +113,14 @@ const StyledFaDownload = styled(FaDownload)`
   vertical-align: baseline;
 `;
 
+const DownloadLink = styled.a`
+	color: white;
+  text-decoration: none;
+	&:hover {
+		color: white;
+	}
+`;
+
 const ResumeContainer = styled.div`
 	margin-top: 20px;
 	margin-bottom: 30px;
@@ -144,19 +144,17 @@ export default function Cover(props) {
 		});
 	}
 	
-	const coverTextArray = stringToCoverCharacter(props.coverText);
-	const coverSubtextArray1 = stringToCoverCharacter(props.coverSubtext[0]);
-	const coverSubtextArray2 = stringToCoverCharacter(props.coverSubtext[1]);
+	const coverTextArray = stringToCoverCharacter(props.title);
+	const coverSubtextArray1 = stringToCoverCharacter(props.subtext[0]);
+	const coverSubtextArray2 = stringToCoverCharacter(props.subtext[1]);
 	
 	function onResumeDownloadButtonPress() {
 		window.open(resumeDownloadLink, '_blank');
 	}
 	
 	return (
-		<CoverContainer>
-			
-			<StyledImage src={props.cover} alt={props.coverAlt} />
-			
+		<TitleBadgeContainer>
+		
 				<CoverTextContainer>
 					
 					<CoverText>
@@ -172,27 +170,21 @@ export default function Cover(props) {
 					</CoverSubtext>
 					
 					<CoverSocialContainer>
-					
 						<CoverSocialIcon href='https://github.com/PvtGandalf'>
 							<FaGithub />
 						</CoverSocialIcon>
-					
 						<CoverSocialIcon href='https://medium.com/@PvtGandalf'>
 							<FaMediumM />
 						</CoverSocialIcon>
-					
 						<CoverSocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
 							<FaLinkedin />
 						</CoverSocialIcon>
-						
 						<CoverSocialIcon href='mailto:jaidenhodson1013@gmail.com'>
 							<FaEnvelope />
 						</CoverSocialIcon>
-						
 						<CoverSocialIcon onClick={() => setShowResumeModal(true)}>
 							<FaBook />
 						</CoverSocialIcon>
-						
 					</CoverSocialContainer>
 					
 				</CoverTextContainer>
@@ -213,8 +205,10 @@ export default function Cover(props) {
 						
 						<DownloadButtonContainer>
 						
-						<Button variant="primary" onClick={onResumeDownloadButtonPress}>
-							Download <StyledFaDownload />
+						<Button variant="primary">
+							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
+								Download <StyledFaDownload />
+							</DownloadLink>
 						</Button>{' '}
 						
 						</DownloadButtonContainer>
@@ -227,6 +221,6 @@ export default function Cover(props) {
 					
 				</StyledModal>
 			
-		</CoverContainer>
+		</TitleBadgeContainer>
 	);
 }

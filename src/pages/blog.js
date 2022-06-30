@@ -8,7 +8,7 @@ import { useQuery } from 'react-query';
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
-import TitleBadge from '../components/titleBadge';
+import Cover from '../components/cover';
 import Footer from '../components/footer';
 import Post from '../components/post';
 
@@ -109,7 +109,7 @@ export default function Blog() {
       <Header />
       
       <HeaderContainer>
-        <TitleBadge
+        <Cover
           title="Jaiden Hodson"
           subtext={["Full Stack", "Software Developer"]}
         />

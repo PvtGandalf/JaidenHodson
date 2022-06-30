@@ -7,7 +7,7 @@ import styled from '@emotion/styled/macro';
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
-import TitleBadge from '../components/titleBadge';
+import Cover from '../components/cover';
 import Footer from '../components/footer';
 import ContactForm from '../components/contactForm';
 
@@ -66,7 +66,7 @@ export default function About() {
       <Header />
       
       <HeaderContainer>
-        <TitleBadge
+        <Cover
           title="Jaiden Hodson"
           subtext={["Full Stack", "Software Developer"]}
         />

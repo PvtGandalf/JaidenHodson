@@ -9,8 +9,8 @@ import { FaCaretRight } from 'react-icons/fa';
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
-import Cover from '../components/cover';
 import Header from '../components/header';
+import Cover from '../components/cover';
 import Footer from '../components/footer';
 import Player from '../components/player';
 import SlideInSection from '../components/slideInSection';
@@ -29,27 +29,36 @@ const HeadingContainer = styled.div`
 
 const ContentContainer = styled.div`
   position: absolute;
-  top: 0;
-  margin-top: ${props => props.marginTop}px;
   background-color: #111a21;
   width: -webkit-fill-available;
+`;
+
+const HeaderContainer = styled.div`
+  grid-area: Header;
+  margin-bottom: 45px;
+  @media (max-width: 991px) {
+    margin-bottom: 25px;
+	}
 `;
 
 const WelcomeContainer = styled.div`
   background-color: ${props => props.bgColor};
   display: flex;
+  margin-bottom: 40px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 `;
 
 const PlayerContainer = styled.div`
-	width: ${props => props.width}px;
-	height: ${props => props.width}px;
+	width: 30vw;
+  height: 45vw;
+  margin-right: 5vw;
 `;
 
 const WelcomeText = styled.h3`
 	color: white;
   font-size: 5vw;
   align-self: center;
-  margin-right: 20px;
 `;
 
 const AboutContainer = styled.div`
@@ -289,11 +298,9 @@ const MultiSlideInSectionContainer = styled.div`
 // ##########################################
 export default function Home() {
 
-  const [contentMarginTop, setContentMarginTop] = useState(window.innerWidth * 2 / 3);
   const [playerWidth, setPlayerWidth] = useState(window.innerWidth / 2);
   
   const handleWindowResize = () => {
-    setContentMarginTop(window.innerWidth * 2 / 3);
     setPlayerWidth(window.innerWidth / 2);
   }
   
@@ -305,23 +312,23 @@ export default function Home() {
   return (
     <PageContainer>
     
-      <HeadingContainer>
-        <Cover
-          cover={Image}
-          coverAlt="Retro TV on river shore near forest"
-          coverText="Jaiden Hodson"
-          coverSubtext={["Full Stack", "Software Developer"]}
-        />
-        <Header />      
-      </HeadingContainer>
+      <Header />
       
-      <ContentContainer marginTop={contentMarginTop}>
-        
+      <HeaderContainer>
+        <Cover
+          title="Jaiden Hodson"
+          subtext={["Full Stack", "Software Developer"]}
+        />
+      </HeaderContainer>
+      
+      <ContentContainer>
+
         <WelcomeContainer>
+          <WelcomeText>Hey all, I'm Jaiden and I'm glad you made it!</WelcomeText>
           <PlayerContainer width={playerWidth} height={playerWidth}>
             <Player/>
           </PlayerContainer>
-          <WelcomeText>Hey all, I'm Jaiden and I'm glad you made it!</WelcomeText>
+          
         </WelcomeContainer>
         
         <SlideInSection>

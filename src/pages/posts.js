@@ -1,18 +1,20 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled/macro';
 import {  Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
 import { useQuery } from 'react-query';
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
+import { FaHeart } from 'react-icons/fa';
 
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
 import Header from '../components/header';
-import TitleBadge from '../components/titleBadge';
+import Cover from '../components/cover';
 import Footer from '../components/footer';
 
 // ##########################################
@@ -61,6 +63,89 @@ const CoverImage = styled.img`
   padding: 30px;
   border-radius: 35px;
   margin-bottom: 10px;
+`;
+
+const PostInfoContainer = styled.div`
+  display: grid;
+  grid-template-areas: "Profile NameDate Tags Reactions";
+	grid-template-columns: min-content min-content auto;
+  margin-bottom: 30px;
+  margin-right: 5%;
+  margin-left: 5%;
+  @media (max-width: 991px) {
+    grid-template-areas: "Profile NameDate Reactions" "Tags Tags Tags";
+    grid-template-columns: min-content min-content auto;
+	}
+`;
+
+const ProfileImage = styled.img`
+  grid-area: Profile;
+  border-radius: 40px;
+  margin-right: 0.8rem;
+  width: 4.5rem;
+  align-self: center;
+`;
+
+const NameDateContainer = styled.div`
+  grid-area: NameDate;
+  width: max-content;
+  align-self: center;
+`;
+
+const Name = styled.p`
+  margin-bottom: 0;
+`;
+
+const PublishedDate = styled.p`
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #c5b5b5;
+`;
+
+const TagsContainer = styled.div`
+	grid-area: Tags;
+  align-self: center;
+  margin-left: 1rem;
+	@media (max-width: 991px) {
+    margin-left: 0px;
+    margin-top: 1rem;
+	}
+`;
+
+const Tag = styled.p`
+	display: inline-block;
+	color: white;
+	background-color: #111a21;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 1rem;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	&:before {
+		content: "#";
+	}
+	@media (max-width: 991px) {
+		font-size: 0.8rem;
+	}
+`;
+
+const ReactionContainer = styled.div`
+  grid-area: Reactions;
+  display: flex;
+  justify-self: end;
+  height: fit-content;
+  align-items: center;
+  align-self: center;
+`;
+
+const ReactionCount = styled.p`
+  color: #c5b5b5;
+	margin-bottom: 0px;
+  margin-right: 0.6rem;
+`;
+
+const ReactionIcon = styled(FaHeart)`
+  color: red;
 `;
 
 const BodyContainer = styled.div`
@@ -120,11 +205,11 @@ const FooterContainer = styled.div`
 // ##########################################
 // #             Posts Component            #
 // ##########################################
-export default function Posts(props) {
+export default function Posts() {
   
   const postPathTitle = useParams().path;
-  
   const postUrl = `https://dev.to/api/articles/${DEV_USER_ID}/${postPathTitle}`;
+  const [ published, setPublished ] = useState('');
 
   const { isLoading, data } = useQuery('postData', () =>
     fetch(postUrl, {
@@ -134,12 +219,20 @@ export default function Posts(props) {
     )
   );
   
+  useEffect(() => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    
+    if (data) {
+      setPublished(new Date(data.published_at).toLocaleDateString(undefined, options));
+    }
+  }, [data]);
+  
   return (
     <PageContainer>
       <Header />
       
       <HeaderContainer>
-        <TitleBadge
+        <Cover
           title="Jaiden Hodson"
           subtext={["Full Stack", "Software Developer"]}
         />
@@ -154,8 +247,30 @@ export default function Posts(props) {
             </TitleContainer>
             
             <BodyContainer>
+            
               <CoverImage src={data.cover_image} />
-
+              
+              <PostInfoContainer>
+                <ProfileImage src={data.user.profile_image_90} />
+                
+                <NameDateContainer>
+                  <Name>{data.user.name}</Name>
+                  <PublishedDate>{published}</PublishedDate>
+                </NameDateContainer>
+                
+                <TagsContainer>
+                  {data.tags.map((tag, tagIdx) =>
+                    <Tag key={tag}>{tag}</Tag>
+                  )}
+                </TagsContainer>
+                
+                <ReactionContainer>
+                  <ReactionCount>{data.public_reactions_count}</ReactionCount>
+                  <ReactionIcon />
+                </ReactionContainer>
+                
+              </PostInfoContainer>
+              
               <MarkdownContainer>
                 <ReactMarkdown
                   components={{

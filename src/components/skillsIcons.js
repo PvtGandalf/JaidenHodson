@@ -72,7 +72,7 @@ export default function SkillsIcons() {
 			
 			<IconGroupContainer>
 				{IconLibrary.main.skills.map((skill, idx) =>
-					<Icon title={skill.skill_name} href={skill.skill_reference} onClick={handleIconClick}>
+					<Icon key={skill.skill_name} title={skill.skill_name} href={skill.skill_reference} onClick={handleIconClick}>
 						<i className={skill.skill_icon_name}></i>
 						<IconText>{skill.skill_name}</IconText>
 					</Icon>
