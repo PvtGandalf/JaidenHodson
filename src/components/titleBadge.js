@@ -11,6 +11,7 @@ import { Modal, Button } from 'react-bootstrap'
 // #        Import Local Components         #
 // ##########################################
 import Resume from '../components/resume';
+import ResumePdf from '../pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -112,6 +113,14 @@ const StyledFaDownload = styled(FaDownload)`
   vertical-align: baseline;
 `;
 
+const DownloadLink = styled.a`
+	color: white;
+  text-decoration: none;
+	&:hover {
+		color: white;
+	}
+`;
+
 const ResumeContainer = styled.div`
 	margin-top: 20px;
 	margin-bottom: 30px;
@@ -196,8 +205,10 @@ export default function Cover(props) {
 						
 						<DownloadButtonContainer>
 						
-						<Button variant="primary" onClick={onResumeDownloadButtonPress}>
-							Download <StyledFaDownload />
+						<Button variant="primary">
+							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
+								Download <StyledFaDownload />
+							</DownloadLink>
 						</Button>{' '}
 						
 						</DownloadButtonContainer>

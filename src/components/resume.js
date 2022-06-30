@@ -6,7 +6,6 @@ import styled from '@emotion/styled/macro';
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
-import ResumePdf from '../pdfs/Jaiden-Hodson-Resume.pdf';
 import ResumeImgLink from '../images/Jaiden-Hodson-Resume.png';
 
 // ##########################################
