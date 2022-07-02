@@ -107,7 +107,7 @@ export default function Projects() {
             images={["images/projects/MarvelComicWiki[CharacterSearch].jpeg", "images/projects/MarvelComicWiki[EventsInformation].jpeg"]}
             description="This service retrieves data from Marvel's Developer API and provides the user with a simple UI to traverse through Marvel's database."
             technology={['AWS', 'Bootstrap', 'CSS3', 'HTML5', 'Javascript', 'MaterialUI', 'React']}
-            demo="https://main.d1c9vulyxwkdj2.amplifyapp.com/"
+            demo="https://www.marvelcomicwiki.com"
             code="https://github.com/PvtGandalf/MarvelComicWiki"
           />
           <Project

@@ -204,13 +204,11 @@ export default function Cover(props) {
 					<Modal.Body>
 						
 						<DownloadButtonContainer>
-						
-						<Button variant="primary">
-							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
-								Download <StyledFaDownload />
-							</DownloadLink>
-						</Button>{' '}
-						
+							<Button variant="primary">
+								<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
+									Download <StyledFaDownload />
+								</DownloadLink>
+							</Button>{' '}
 						</DownloadButtonContainer>
 						
 						<ResumeContainer>

@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled/macro';
 import { Card, Button } from 'react-bootstrap'
 import { FaCaretRight } from 'react-icons/fa';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 // ##########################################
 // #        Import Local Components         #
@@ -13,8 +15,6 @@ import Header from '../components/header';
 import Cover from '../components/cover';
 import Footer from '../components/footer';
 import Player from '../components/player';
-import SlideInSection from '../components/slideInSection';
-import Image from '../images/pexels-photography-maghradze-ph-3764958.jpg';
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -297,17 +297,32 @@ const MultiSlideInSectionContainer = styled.div`
 // #            Home Component              #
 // ##########################################
 export default function Home() {
+  
+  const controls = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const { ref, inView } = useInView();
+  const { ref: ref2, inView: inView2 } = useInView();
+  const { ref: ref3, inView: inView3 } = useInView();
 
-  const [playerWidth, setPlayerWidth] = useState(window.innerWidth / 2);
-  
-  const handleWindowResize = () => {
-    setPlayerWidth(window.innerWidth / 2);
-  }
-  
   useEffect(() => {
-    window.onload = handleWindowResize;
-    window.onresize = handleWindowResize;
-  }, []);
+    
+    const aboutView = (inView) ? controls.start('visible') : controls.start('hidden');
+    const projectView = (inView2) ? controls2.start('visible') : controls2.start('hidden');
+    const blogView = (inView3) ? controls3.start('visible') : controls3.start('hidden');
+    
+  }, [inView, inView2, inView3]);
+  
+  const boxVariants = {
+    hidden: {opacity: 0 },
+    visible: {
+      opacity: 1, 
+      transition: {
+        duration: 0.5,
+        
+      },
+    },
+  };
   
   return (
     <PageContainer>
@@ -323,15 +338,23 @@ export default function Home() {
       
       <ContentContainer>
 
+      {/*
         <WelcomeContainer>
           <WelcomeText>Hey all, I'm Jaiden and I'm glad you made it!</WelcomeText>
-          <PlayerContainer width={playerWidth} height={playerWidth}>
+          <PlayerContainer>
             <Player/>
           </PlayerContainer>
-          
         </WelcomeContainer>
         
-        <SlideInSection>
+      */}
+        
+        <motion.div
+          ref={ref}
+          initial='hidden'
+          animate={controls}
+          variants={boxVariants}
+        >
+          
           <AboutContainer bgColor='#145e97'>
             <AboutInformationContainer>
               <AboutSliderText>
@@ -355,26 +378,39 @@ export default function Home() {
               </AboutCard>
             </AboutInformationContainer>
           </AboutContainer>
-        </SlideInSection>
+        
+        </motion.div>
+        
+        
         
         <MultiSlideInSectionContainer>
           
-          <SlideInSection>
-            <ProjectContainer bgColor='#145e97'>
-              <SliderText>
-                Check out my projects!
-              </SliderText>
-              <PageLinkButton href="../projects">
-                View Projects <FaCaretRight />
-              </PageLinkButton>
-              <ProjectImageContainer>
-                <ProjectImageBack src="images/projects/MarvelComicWiki[CharacterSearch].jpeg" />
-                <ProjectImageFront src="images/projects/MarvelComicWiki[EventsInformation].jpeg" />
-              </ProjectImageContainer>
-            </ProjectContainer>
-          </SlideInSection>
+            <motion.div
+              ref={ref2}
+              initial='hidden'
+              animate={controls2}
+              variants={boxVariants}
+            >
+              <ProjectContainer bgColor='#145e97'>
+                <SliderText>
+                  Check out my projects!
+                </SliderText>
+                <PageLinkButton href="../projects">
+                  View Projects <FaCaretRight />
+                </PageLinkButton>
+                <ProjectImageContainer>
+                  <ProjectImageBack src="images/projects/MarvelComicWiki[CharacterSearch].jpeg" />
+                  <ProjectImageFront src="images/projects/MarvelComicWiki[EventsInformation].jpeg" />
+                </ProjectImageContainer>
+              </ProjectContainer>
+            </motion.div>
 
-          <SlideInSection>
+          <motion.div
+            ref={ref3}
+            initial='hidden'
+            animate={controls3}
+            variants={boxVariants}
+          >
             <BlogContainer bgColor='#145e97'>
               <SliderText>
                 I've also got a blog!
@@ -387,7 +423,7 @@ export default function Home() {
                 <BlogProfileImage src="images/github-profile.jpeg" />
               </BlogImageContainer>
             </BlogContainer>
-          </SlideInSection>
+          </motion.div>
           
         </MultiSlideInSectionContainer>
       
