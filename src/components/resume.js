@@ -11,10 +11,6 @@ import ResumeImgLink from '../images/Jaiden-Hodson-Resume.png';
 // ##########################################
 // #       Component Specific Styling       #
 // ##########################################
-const PageContainer = styled.div`
-	text-align: -webkit-center;
-`;
-
 const ResumeContainer = styled.div`
 	background: #00000075;
 	width: -webkit-fit-content;
@@ -25,7 +21,7 @@ const ResumeContainer = styled.div`
 `;
 
 const ResumeImg = styled.img`
-	width: 50vw;
+	width: 100%;
 `;
 
 // ##########################################
@@ -33,12 +29,8 @@ const ResumeImg = styled.img`
 // ##########################################
 export default function Resume() {
   return (
-    <PageContainer>
-    
-			<ResumeContainer>
-				<ResumeImg src={ResumeImgLink}/>
-      </ResumeContainer>
-			
-    </PageContainer>
+		<ResumeContainer>
+			<ResumeImg src={ResumeImgLink}/>
+		</ResumeContainer>
   );
 }

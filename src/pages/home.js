@@ -338,15 +338,12 @@ export default function Home() {
       
       <ContentContainer>
 
-      {/*
         <WelcomeContainer>
           <WelcomeText>Hey all, I'm Jaiden and I'm glad you made it!</WelcomeText>
           <PlayerContainer>
             <Player/>
           </PlayerContainer>
         </WelcomeContainer>
-        
-      */}
         
         <motion.div
           ref={ref}

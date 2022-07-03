@@ -99,13 +99,16 @@ const CoverSocialIcon = styled.a`
 `;
 
 const StyledModal = styled(Modal)`
-	.modal-width {
-		max-width: 65%;
+	place-content: center;
+	.modal-content {
+		background-color: rgba(0,0,0,.0001);
+  	border: none;
 	}
 `;
 
-const DownloadButtonContainer = styled.div`
-	text-align: center;
+const StyledButton = styled(Button)`
+	width: fit-content;
+	align-self: center;
 `;
 
 const StyledFaDownload = styled(FaDownload)`
@@ -122,8 +125,7 @@ const DownloadLink = styled.a`
 `;
 
 const ResumeContainer = styled.div`
-	margin-top: 20px;
-	margin-bottom: 30px;
+	margin-top: 5px;
 `;
 
 // ##########################################
@@ -197,25 +199,16 @@ export default function Cover(props) {
 					aria-labelledby="contained-modal-title-vcenter"
 					centered
 				>
-					<Modal.Header closeButton>
-						<Modal.Title id="example-custom-modal-styling-title" />
-					</Modal.Header>
-					
-					<Modal.Body>
 						
-						<DownloadButtonContainer>
-							<Button variant="primary">
-								<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
-									Download <StyledFaDownload />
-								</DownloadLink>
-							</Button>{' '}
-						</DownloadButtonContainer>
-						
-						<ResumeContainer>
-							<Resume />
-						</ResumeContainer>
+						<StyledButton variant="primary">
+							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
+								Download <StyledFaDownload />
+							</DownloadLink>
+						</StyledButton>{' '}
 					
-					</Modal.Body>
+					<ResumeContainer>
+						<Resume />
+					</ResumeContainer>
 					
 				</StyledModal>
 			
