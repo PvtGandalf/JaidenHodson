@@ -8,6 +8,7 @@ import styled from '@emotion/styled/macro';
 // ##########################################
 // #        Import Local Components         #
 // ##########################################
+import Logo from "../components/logo.js";
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -24,16 +25,7 @@ const StyledNavbarBrand = styled(Navbar.Brand)`
 `;
 
 const StyledNavLink = styled(NavLink)`
-	font-size: calc(0.5vw + 7px);
-`;
-
-const StyledImage = styled.img`
-  filter: invert(100%);
-  height: 7vw;
-	&:hover {
-		transform: scale(1.1);
-		filter: invert(90%);
-	}
+	font-size: 1.3vw;
 `;
 
 const StyledBrandText = styled.p`
@@ -55,7 +47,7 @@ export default function Header(props) {
 			<Container fluid>
 				
 				<StyledNavbarBrand href="../../home">
-					<StyledImage src="PvtGandalf-Logo-[BG-Transparent].svg"/>
+					<Logo />
 				</StyledNavbarBrand>
 				
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
