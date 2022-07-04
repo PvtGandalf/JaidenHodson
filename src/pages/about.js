@@ -16,30 +16,31 @@ import SkillsIcons from '../components/skillsIcons';
 // #       Component Specific Styling       #
 // ##########################################
 const PageContainer = styled.div`
-
+  
 `;
 
 const ContentContainer = styled.div`
+  
   display: grid;
   grid-template-areas: "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
-  margin-top: 45px;
-  margin-bottom: 45px;
+  padding-top: 45px;
+  padding-bottom: 60px;
   @media (max-width: 991px) {
     grid-template-areas: "Title Title Title Title" "Model Bio Bio Bio" "Skills Skills Skills Skills" "Edu Edu Edu Edu";
     grid-template-columns: auto;
-    margin-top: 45px;
-    margin-bottom: 45px;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
 	}
 `;
 
 const HeaderContainer = styled.div`
   grid-area: Header;
-  margin-bottom: 45px;
+
   @media (max-width: 991px) {
-    margin-bottom: 25px;
+    
 	}
 `;
 
@@ -166,10 +167,7 @@ const BiographyContentContainer = styled.div`
 `;
 
 const FooterContainer = styled.div`
-  margin-top: 55px;
-  @media (max-width: 991px) {
-    margin-top: 0px;
-	}
+
 `;
 
 // ##########################################

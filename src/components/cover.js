@@ -106,9 +106,27 @@ const StyledModal = styled(Modal)`
 	}
 `;
 
+const StyledHeader = styled(Modal.Header)`
+	border-bottom: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	.btn-close {
+		filter: invert(0.8);
+		padding: 0;
+	}
+`;
+
 const StyledButton = styled(Button)`
 	width: fit-content;
 	align-self: center;
+	background-color: #1e1e1e;
+  border-color: #323232;
+	&:hover {
+		background-color: #4e4e4e;
+    border-color: #686868;
+	}
 `;
 
 const StyledFaDownload = styled(FaDownload)`
@@ -125,7 +143,7 @@ const DownloadLink = styled.a`
 `;
 
 const ResumeContainer = styled.div`
-	margin-top: 5px;
+	
 `;
 
 // ##########################################
@@ -199,12 +217,13 @@ export default function Cover(props) {
 					aria-labelledby="contained-modal-title-vcenter"
 					centered
 				>
-						
+					<StyledHeader closeButton="true">
 						<StyledButton variant="primary">
 							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
 								Download <StyledFaDownload />
 							</DownloadLink>
 						</StyledButton>{' '}
+					</StyledHeader>
 					
 					<ResumeContainer>
 						<Resume />

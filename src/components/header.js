@@ -16,7 +16,7 @@ import Logo from "../components/logo.js";
 const StyledNavbar = styled(Navbar)`
 	text-align: center;
   padding: 30px;
-	background-color: #00000075;
+	background: linear-gradient(#10191e, #00000075);
 `;
 
 const StyledNavbarBrand = styled(Navbar.Brand)`

@@ -7,6 +7,7 @@ import styled from '@emotion/styled/macro';
 // #       Component Specific Styling       #
 // ##########################################
 const StyledSVG = styled.svg`
+  width: max(5vw, 3.5rem);
   .hat {
     color: #4f6866;
   }
@@ -29,7 +30,7 @@ const StyledSVG = styled.svg`
 export default function Logo(props) {
   
   return (
-    <StyledSVG xmlns="http://www.w3.org/2000/svg" width="7vw" viewBox="0 0 464 625">
+    <StyledSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 625">
       <g className="layer">
         <path
           className="hat"

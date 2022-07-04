@@ -329,12 +329,10 @@ export default function Home() {
     
       <Header />
       
-      <HeaderContainer>
-        <Cover
-          title="Jaiden Hodson"
-          subtext={["Full Stack", "Software Developer"]}
-        />
-      </HeaderContainer>
+      <Cover
+        title="Jaiden Hodson"
+        subtext={["Full Stack", "Software Developer"]}
+      />
       
       <ContentContainer>
 
