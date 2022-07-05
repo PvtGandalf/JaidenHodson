@@ -35,4 +35,4 @@ export default function Model({ ...props }) {
   )
 }
 
-useGLTF.preload('/model-with-animation.glb')
+useGLTF.preload('/model-jaiden.glb')
