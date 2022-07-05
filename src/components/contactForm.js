@@ -5,6 +5,8 @@ import { useState } from 'react';
 import styled from '@emotion/styled/macro';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // ##########################################
 // #    Mailjs Template and Service IDS     #
@@ -41,6 +43,16 @@ const FeedbackMessage = styled.p`
 	color: white;
 `
 
+const StyledToast = styled(ToastContainer)`
+  &&&.Toastify__toast-container {}
+  .Toastify__toast {
+		background-color: #111a21;
+		border: solid #0d151a 2px;
+	}
+  .Toastify__toast-body {}
+  .Toastify__progress-bar {}
+`;
+
 // ##########################################
 // #           Contact Component            #
 // ##########################################
@@ -50,11 +62,30 @@ export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
-  const [reason, setReason] = useState('');
-  const [success, setSuccess] = useState(false);
-  const [failure, setFailure] = useState(false);
-  const [show, setShow] = useState(true);
+  const [reason, setReason] = useState('Business');
   const [validated, setValidated] = useState(false);
+	
+	const notifySuccess = () => toast.success('Message sent successfully!', {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		theme: "dark"
+	});
+		
+	const notifyFailure = () => toast.error('Error sending message!', {
+		position: "top-right",
+		autoClose: 5000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		theme: "dark"
+	});
 	
 // ##########################################
 // #            Email Validation            #
@@ -110,48 +141,38 @@ export default function ContactForm() {
 // #        Form Submission Handling        #
 // ##########################################
   function handleSubmit(event) {
-      event.preventDefault();
-      
-      // Show validation hints after submission
-      setValidated(true);
-      
-      // Check for required fields
-      const form = event.currentTarget;
-      
-      // Stop submission if not all required fields filled out
-      if (form.checkValidity() === false) {
-        event.stopPropagation();
-        return;
-      }
-      
-      // Stop submission if email not valid
-      if (!validateEmail(form.email.value)) {
-        event.stopPropagation();
-        return;
-      }
-      
-      // Set state for form submission success & failure
-      setSuccess(false);
-      setFailure(false);
-      
-			console.log(name, email, phone, message);
-			
-      // Send email using form data
-      /*emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-          firstName: name,
-          lastName: "",
-          interests: interestString,
-          message: message,
-          email: email,
-          phone: phone
-        }, PUBLIC_KEY).then(res => {
-            console.log('Email successfully sent!');
-            setSuccess(true);
-        }).catch(err => {
-            console.error('Email not sent. Error:', err);
-            setFailure(true);
-        });
-				*/
+		event.preventDefault();
+		
+		// Show validation hints after submission
+		setValidated(true);
+		
+		// Check for required fields
+		const form = event.currentTarget;
+		
+		// Stop submission if not all required fields filled out
+		if (form.checkValidity() === false) {
+			event.stopPropagation();
+			return;
+		}
+		
+		// Stop submission if email not valid
+		if (!validateEmail(form.email.value)) {
+			event.stopPropagation();
+			return;
+		}
+		
+		// Send email using form data
+		emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+				name: name,
+				interests: reason,
+				message: message,
+				email: email,
+				phone: phone
+			}, PUBLIC_KEY).then(res => {
+					notifySuccess();
+			}).catch(err => {
+					notifyFailure();
+			});
   }
 	
 	return (
@@ -207,19 +228,18 @@ export default function ContactForm() {
 				Send Message
 			</StyledButton>
 			
-			{/* Success Alert */}
-			{success && show &&
-				<Alert variant="success" onClose={() => setShow(false)} dismissible>
-					<Alert.Heading>Email sent successfully!</Alert.Heading>
-				</Alert>
-			}
-			
-			{/* Failure Alert */}
-			{failure && show &&
-				<Alert variant="danger" onClose={() => setShow(false)} dismissible>
-					<Alert.Heading>Email not sent!</Alert.Heading>
-				</Alert>
-			}
+			{/* Message Status Toast */}
+			<StyledToast
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 			
 		</StyledForm>
   );
