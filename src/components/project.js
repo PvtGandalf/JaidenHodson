@@ -147,7 +147,7 @@ export default function Project(props) {
 					const currentIcon = (IconLibrary.main.skills.find(item => item.skill_name === skill));
 					
 					return (
-						<Icon key={currentIcon.skill_name} title={currentIcon.skill_name} href={currentIcon.skill_reference}>
+						<Icon key={currentIcon.skill_name} title={currentIcon.skill_name} href={currentIcon.skill_reference} target="_blank">
 							<i className={currentIcon.skill_icon_name}></i>
 							<IconText>{currentIcon.skill_name}</IconText>
 						</Icon>
@@ -158,12 +158,12 @@ export default function Project(props) {
 			
 			<ButtonsContainer>
 			{props.demo ? 
-				<Button href={props.demo}>View Demo</Button>
+				<Button href={props.demo} target="_blank">View Demo</Button>
 				:
 				<></>
 			}
 			{props.code ? 
-				<Button href={props.code}>View Code</Button>
+				<Button href={props.code} target="_blank">View Code</Button>
 				:
 				<></>
 			}

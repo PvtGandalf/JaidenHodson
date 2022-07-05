@@ -206,7 +206,7 @@ export default function About() {
           
           <EducationContentContainer>
           
-            <SchoolContainer href="https://oregonstate.edu">
+            <SchoolContainer href="https://oregonstate.edu" target="_blank">
               <EducationImageContainer>
                 <EducationImage src="images/OSU-Beavers.png" />
               </EducationImageContainer>
@@ -218,7 +218,7 @@ export default function About() {
               </TextContainer>
             </SchoolContainer>
             
-            <SchoolContainer href="https://sahs.albany.k12.or.us">
+            <SchoolContainer href="https://sahs.albany.k12.or.us" target="_blank">
               <EducationImageContainer>
                 <EducationImage src="images/SAHS-RedHawks.png" />
               </EducationImageContainer>

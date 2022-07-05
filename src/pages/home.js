@@ -360,7 +360,7 @@ export default function Home() {
               </PageLinkButton>
               <GithubStatsContainer>
                 <GithubStatsText>Follow me on Github!</GithubStatsText>
-                <a href="https://github.com/PvtGandalf">
+                <a href="https://github.com/PvtGandalf"  target="_blank">
                   <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
                 </a>
               </GithubStatsContainer>

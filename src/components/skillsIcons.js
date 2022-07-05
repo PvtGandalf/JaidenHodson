@@ -62,23 +62,16 @@ const SkillsIconsContainer = styled.div`
 // ##########################################
 export default function SkillsIcons() {
 	
-  function handleIconClick(e) {
-    e.preventDefault();
-		window.open(e.currentTarget.href, '_blank');
-	}
-  
   return (
 		<SkillsIconsContainer>
-			
 			<IconGroupContainer>
 				{IconLibrary.main.skills.map((skill, idx) =>
-					<Icon key={skill.skill_name} title={skill.skill_name} href={skill.skill_reference} onClick={handleIconClick}>
+					<Icon key={skill.skill_name} title={skill.skill_name} href={skill.skill_reference} target="_blank">
 						<i className={skill.skill_icon_name}></i>
 						<IconText>{skill.skill_name}</IconText>
 					</Icon>
 				)}
 			</IconGroupContainer>
-
 		</SkillsIconsContainer>
   );
 }

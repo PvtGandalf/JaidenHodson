@@ -168,10 +168,6 @@ export default function Cover(props) {
 	const coverSubtextArray1 = stringToCoverCharacter(props.subtext[0]);
 	const coverSubtextArray2 = stringToCoverCharacter(props.subtext[1]);
 	
-	function onResumeDownloadButtonPress() {
-		window.open(resumeDownloadLink, '_blank');
-	}
-	
 	return (
 		<TitleBadgeContainer>
 		
@@ -190,13 +186,13 @@ export default function Cover(props) {
 					</CoverSubtext>
 					
 					<CoverSocialContainer>
-						<CoverSocialIcon href='https://github.com/PvtGandalf'>
+						<CoverSocialIcon href='https://github.com/PvtGandalf' target="_blank">
 							<FaGithub />
 						</CoverSocialIcon>
-						<CoverSocialIcon href='https://medium.com/@PvtGandalf'>
+						<CoverSocialIcon href='https://medium.com/@PvtGandalf' target="_blank">
 							<FaMediumM />
 						</CoverSocialIcon>
-						<CoverSocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/'>
+						<CoverSocialIcon href='https://www.linkedin.com/in/jaiden-hodson-4a4b70227/' target="_blank">
 							<FaLinkedin />
 						</CoverSocialIcon>
 						<CoverSocialIcon href='mailto:jaidenhodson1013@gmail.com'>
