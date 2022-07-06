@@ -15,6 +15,8 @@ export default function Model({ ...props }) {
     actions['Armature|mixamo.com|Layer0'].play();
   });
   
+  useGLTF.preload('/model-jaiden.glb')
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -34,5 +36,3 @@ export default function Model({ ...props }) {
     </group>
   )
 }
-
-useGLTF.preload('/model-jaiden.glb')
