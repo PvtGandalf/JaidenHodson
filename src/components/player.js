@@ -3,7 +3,7 @@
 // ##########################################
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Loader } from '@react-three/drei';
 
 // ##########################################
 // #        Import Local Components         #
@@ -22,7 +22,7 @@ export default function Player(props) {
 	const modelAngle = Math.PI / 2;
 	
 	return (
-		<Suspense fallback={null}>
+		<>
 			<Canvas
 				camera={{ position: [2, 0, 12.25], fov: 10 }}
 				width={props.width}
@@ -33,12 +33,15 @@ export default function Player(props) {
 						height: '100%',
 				 }}
 			>
+				<Suspense fallback={null}>
 					<ambientLight intensity={1.25} />
 					<ambientLight intensity={0.1} />
 					<directionalLight intensity={0.4} />
 					<Model position={[0, -0.95, 0]} />
 					<OrbitControls enableZoom={false} minPolarAngle={modelAngle} maxPolarAngle={modelAngle}/>
+				</Suspense>
 			</Canvas>
-		</Suspense>
+			<Loader />
+		</>
   );
 }
