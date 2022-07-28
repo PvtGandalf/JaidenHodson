@@ -26,6 +26,9 @@ const StyledNavbarBrand = styled(Navbar.Brand)`
 
 const StyledNavLink = styled(NavLink)`
 	font-size: 1.3vw;
+	@media (max-width: 991px) {
+    font-size: max(3vw, 1rem);
+	}
 `;
 
 const StyledBrandText = styled.p`

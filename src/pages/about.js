@@ -20,7 +20,6 @@ const PageContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  
   display: grid;
   grid-template-areas: "Title Title Title" "Skills Model Bio" "Edu Edu Edu";
 	grid-template-columns: 1fr min-content 1fr;
@@ -100,6 +99,7 @@ const SkillsContainer = styled.div`
 const ModelContainer = styled.div`
   grid-area: Model;
   justify-self: center;
+  align-self: center;
 	width: 20vw;
   height: 45vw;
 `;

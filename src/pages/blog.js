@@ -75,6 +75,9 @@ const PostsContainer = styled.div`
   margin-right: 50px;
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
+    margin-left: 0px;
+    margin-right: 0px;
+    grid-gap: 25px;
 	}
 `;
 

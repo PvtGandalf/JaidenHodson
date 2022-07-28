@@ -44,6 +44,7 @@ const Icon = styled.a`
 	};
 	@media (max-width: 991px) {
     margin: 1.25%;
+		font-size: 3.8vw;
 	}
 `;
 

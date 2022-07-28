@@ -47,8 +47,8 @@ const TitleBadgeContainer = styled.div`
 
 const CoverTextContainer = styled.div`
 	background: #00000035;
-	padding-top: 85px;
-	padding-bottom: 85px;
+	padding-top: 10vw;
+  padding-bottom: 13vw;
 `;
 
 const CoverCharacter = styled.span`
@@ -65,9 +65,12 @@ const CoverCharacter = styled.span`
 const CoverText = styled.h1`
 	color: white;
 	font-size: 5vw;
-	margin-bottom: 10px;
+	margin-bottom: 7.5px;
 	display: flex;
   justify-content: center;
+	@media (max-width: 991px) {
+    font-size: 7vw;
+	}
 `;
 
 const CoverSubtext = styled.h2`
@@ -76,6 +79,9 @@ const CoverSubtext = styled.h2`
   display: flex;
 	margin-bottom: 5px;
   justify-content: center;
+	@media (max-width: 991px) {
+    font-size: 4.5vw;
+	}
 `;
 
 const CoverSocialContainer = styled.div`
@@ -84,8 +90,10 @@ const CoverSocialContainer = styled.div`
 	font-size: 2.25vw;
 	display: flex;
   justify-content: center;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 5px;
+	@media (max-width: 991px) {
+    font-size: 4.5vw;
+	}
 `;
 
 const CoverSocialIcon = styled.a`

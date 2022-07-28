@@ -69,6 +69,9 @@ const ProjectsContainer = styled.div`
   margin-right: 50px;
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
+    grid-gap: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
 	}
 `;
 

@@ -7,7 +7,7 @@ import styled from '@emotion/styled/macro';
 // #       Component Specific Styling       #
 // ##########################################
 const StyledSVG = styled.svg`
-  width: max(5vw, 3.5rem);
+  width: max(5vw, 2.5rem);
   .hat {
     color: #4f6866;
   }

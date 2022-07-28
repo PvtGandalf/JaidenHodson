@@ -59,6 +59,10 @@ const DescriptionContainer = styled.div`
 	margin-right: 30px;
 	margin-bottom: 20px;
 	margin-left: 30px;
+	@media (max-width: 991px) {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
 `;
 
 const Description = styled.p`
@@ -106,6 +110,10 @@ const ButtonsContainer = styled.div`
   margin-bottom: 15px;
 	height: 100%;
 	align-items: flex-end;
+	@media (max-width: 991px) {
+		margin-top: 5px;
+		margin-bottom: 0px;
+	}
 `;
 
 const Button = styled(BootstrapButton)`

@@ -1,0 +1,137 @@
+{
+    "main": {
+        "projects": [
+            {
+                "project_title": "Marvel Comic Wiki",
+                "project_description": "This service retrieves data from Marvel's Developer API and provides the user with a simple UI to traverse through Marvel's database.",
+								"project_demo": "https://www.marvelcomicwiki.com",
+								"project_code": "https://github.com/PvtGandalf/MarvelComicWiki",
+								"project_technology": [
+										"AWS", "Bootstrap", "CSS3", "HTML5", "Javascript", "MaterialUI", "React"
+								],
+								"project_images": [
+										{
+												"image_alt": "Marvel Comic Wiki [Home Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Home].jpeg",
+												"image_description": "Screenshot showing the home page with some information about the website as well as a darkmode toggle attached to the navigation bar."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Characters Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Characters].jpeg",
+												"image_description": "Screenshot showing the characters page after searching for 'Doc' in the search bar."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Comics Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Comics].jpeg",
+												"image_description": "Screenshot showing the comics page after searching for 'Avenger' in the search bar."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Creators Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Creators].jpeg",
+												"image_description": "Screenshot showing the creators page after searching for 'John' in the search bar."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Events Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Events].jpeg",
+												"image_description": "Screenshot showing the events page after navigating through the paginated results up to the 2nd to last page of events."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Series Page]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Series].jpeg",
+												"image_description": "Screenshot showing the series page after searching for 'Silver' in the search bar."
+										},
+										{
+												"image_alt": "Marvel Comic Wiki [Event Information Modal]",
+												"image_link": "/images/projects/Marvel-Comic-Wiki/MCW[Events-Information].jpeg",
+												"image_description": "Screenshot showing a modal popup displaying extra information related to the event 'Days of the Future Present' within the Marvel Universe."
+										}
+								]
+            },
+						{
+                "project_title": "Whole Body Health",
+                "project_description": "This website uses my personally designed API to pull data into the UI that dynamically adjusts to its content.",
+								"project_demo": "https://main.d3s3bgzi9y4jfb.amplifyapp.com/",
+								"project_technology": [
+										"AWS", "Bootstrap", "CSS3", "Docker", "HTML5", "Javascript", "MaterialUI", "MongoDB", "NodeJs", "React"
+								],
+								"project_images": [
+										{
+												"image_alt": "Whole Body Health [Home Page]",
+												"image_link": "/images/projects/Whole-Body-Health/WBH[Home].jpeg",
+												"image_description": "Screenshot showing the home page with additional information regarding services this company provides to its clients."
+										},
+										{
+												"image_alt": "Whole Body Health [About Page]",
+												"image_link": "/images/projects/Whole-Body-Health/WBH[About].jpeg",
+												"image_description": "Screenshot showing the about page containing the information about the people working at Whole Body Health."
+										},
+										{
+												"image_alt": "Whole Body Health [Media Page]",
+												"image_link": "/images/projects/Whole-Body-Health/WBH[Media-All].jpeg",
+												"image_description": "Screenshot showing previews of all blog posts paginated by date."
+										},
+										{
+												"image_alt": "Whole Body Health [Single Blog Post Page]",
+												"image_link": "/images/projects/Whole-Body-Health/WBH[Media-Single].jpeg",
+												"image_description": "Screenshot showing a single blog post with content that was dynamically rendered based on user data provided."
+										},
+										{
+												"image_alt": "Whole Body Health [Contact Page]",
+												"image_link": "/images/projects/Whole-Body-Health/WBH[Contact].jpeg",
+												"image_description": "Screenshot showing the contact page and the contact form found within it."
+										}
+								]
+            },
+						{
+                "project_title": "Helping My Friend",
+                "project_description": "This is an all-in-one platform that allows its users to create/share projects with the option to enable fundraising, meal-planning and work party scheduling.",
+								"project_demo": "http://helpingmyfriend.com/",
+								"project_technology": [
+										"Bootstrap", "CSS3", "Docker", "Heroku", "HTML5", "Javascript", "Jira", "MongoDB", "NodeJs"
+								],
+								"project_images": [
+										{
+												"image_alt": "Whole Body Health [Home Page]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Home].jpeg",
+												"image_description": "Screenshot showing the home page with example projects displayed as well as options to search for specific projects by keyword."
+										},
+										{
+												"image_alt": "Whole Body Health [View Project Page]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Fundraiser].jpeg",
+												"image_description": "Screenshot showing the view project page with the fundraiser tab toggled."
+										},
+										{
+												"image_alt": "Whole Body Health [Donation Modal]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Donate].jpeg",
+												"image_description": "Screenshot showing the donation modal popup."
+										},
+										{
+												"image_alt": "Whole Body Health [My Account Page]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Account-Page].jpeg",
+												"image_description": "Screenshot showing the user's 'My Account' page displaying owned/followed projects as well as the user's transaction history."
+										},
+										{
+												"image_alt": "Whole Body Health [Share Project Modal]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Share-Project].jpeg",
+												"image_description": "Screenshot showing the share project modal popup."
+										},
+										{
+												"image_alt": "Whole Body Health [Meal Calendar Creation]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Meal-Calendar-Creation].jpeg",
+												"image_description": "Screenshot showing the meal calendar creation form."
+										},
+										{
+												"image_alt": "Whole Body Health [Meal Calendar Contributions]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Meal-Calendar].jpeg",
+												"image_description": "Screenshot showing an active meal calendar within a project."
+										},
+										{
+												"image_alt": "Whole Body Health [Work Party Volunteering]",
+												"image_link": "/images/projects/Helping-My-Friend/HMF[Work-Party].jpeg",
+												"image_description": "Screenshot showing the view project page with the work party tab toggled and the comment section in view."
+										}
+								]
+            }
+        ]
+    }
+}

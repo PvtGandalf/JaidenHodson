@@ -19,7 +19,7 @@ const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 // #       Component Specific Styling       #
 // ##########################################
 const StyledForm = styled(Form)`
-  width: 45%;
+  max-width: 600px;
 	margin: 40px;
 	background: #00000035;
   padding: 30px;
