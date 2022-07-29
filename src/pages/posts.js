@@ -63,6 +63,11 @@ const CoverImage = styled.img`
   padding: 30px;
   border-radius: 35px;
   margin-bottom: 10px;
+  @media (max-width: 991px) {
+		padding: 0px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+	}
 `;
 
 const PostInfoContainer = styled.div`
@@ -84,6 +89,9 @@ const ProfileImage = styled.img`
   margin-right: 0.8rem;
   width: 4.5rem;
   align-self: center;
+  @media (max-width: 991px) {
+    width: 3rem;
+	}
 `;
 
 const NameDateContainer = styled.div`
@@ -156,6 +164,10 @@ const BodyContainer = styled.div`
   background: #00000035;
   padding: 30px;
   border-radius: 40px;
+  @media (max-width: 991px) {
+    margin-left: 20px;
+    margin-right: 20px;
+	}
 `;
 
 const MarkdownContainer = styled.div`

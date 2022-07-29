@@ -88,6 +88,9 @@ const CoverImage = styled.img`
 	border-radius: 35px;
 	@media (max-width: 991px) {
 		align-self: center;
+		padding: 0px;
+    border-radius: 15px;
+    margin-bottom: 20px;
 	}
 `;
 
