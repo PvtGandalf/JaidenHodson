@@ -108,6 +108,7 @@ const GithubStatsContainer = styled.div`
   padding-top: 1.5vw;
   padding-right: 5vw;
   padding-left: 5vw;
+  z-index: 1;
   &:hover {
     transform: scale(1.05);
   }

@@ -16,6 +16,7 @@ import Post from '../components/post';
 // #              Dev API Key               #
 // ##########################################
 const DEV_API_KEY = process.env.REACT_APP_DEV_API_KEY;
+const DEV_USER_ID = process.env.REACT_APP_DEV_USER_ID;
 
 // ##########################################
 // #       Component Specific Styling       #
@@ -93,14 +94,12 @@ const FooterContainer = styled.div`
 // ##########################################
 export default function Blog() {
   
-  const blogUrl = 'https://dev.to/api/articles/me/published';
+  //const blogUrl = 'https://dev.to/api/articles/me/published';
+  const blogUrl = `https://dev.to/api/articles?username=${DEV_USER_ID}&state=all`;
   
   const fetchBlogData = async () => {
     const res = await fetch(blogUrl, {
       method: 'GET',
-      headers: {
-        "api-key": DEV_API_KEY
-      }
     })
     return res.json();
   }
