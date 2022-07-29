@@ -432,7 +432,7 @@ export default function Home() {
             <GithubStatsContainer>
               <SliderSubtitleText>Follow me on Github!</SliderSubtitleText>
               <a href="https://github.com/PvtGandalf"  target="_blank">
-                <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp;theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
+                <GithubStatsImage src="https://github-readme-stats.vercel.app/api?username=PvtGandalf&amp;show_icons=true&amp&theme=tokyonight" alt="Jaiden&#39;s GitHub stats" />
               </a>
             </GithubStatsContainer>
             
