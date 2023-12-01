@@ -105,6 +105,14 @@ export default function Projects() {
         </TitleContainer>
         
         <ProjectsContainer>
+					<Project
+            title="MUFG & Union Bank"
+            images={["/images/projects/MUFG[Mobile].png",
+						"/images/projects/MUFG[Updated].png"]}
+            description="Integrated an authentication orchestration system into the bank’s login and HRT flows to improve user experience and maintainability of code."
+            technology={['AWS', 'Bash', 'Bootstrap', 'CSS3', 'Docker', 'Express', 'Git', 'HTML5', 'Java', 'Javascript', 'Jira', 'NodeJs', 'Python', 'React']}
+            demo="https://sso.mufgamericas.com/login/auth"
+          />
           <Project
             title="Marvel Comic Wiki"
             images={["/images/projects/MarvelComicWiki[CharacterSearch].jpeg", "/images/projects/MarvelComicWiki[EventsInformation].jpeg"]}
@@ -118,14 +126,14 @@ export default function Projects() {
             images={["/images/projects/WBH[OneBlog].jpeg", "/images/projects/WBH[AllBlogs].jpeg"]}
             description="This website uses my personally designed API to pull data into the UI that dynamically adjusts to its content."
             technology={['AWS', 'Bootstrap', 'CSS3', 'Docker', 'HTML5', 'Javascript', 'MaterialUI', 'MongoDB', 'NodeJs', 'React']}
-            demo="https://main.d3s3bgzi9y4jfb.amplifyapp.com/"
+            demo="https://www.wholebodyhealthlebanon.com"
           />
           <Project
             title="Helping My Friend"
             images={["/images/projects/HMF[Home].jpeg", "/images/projects/HMF[Project].jpeg"]}
             description="This is an all-in-one platform that allows its users to create/share projects with the option to enable fundraising, meal-planning and work party scheduling."
             technology={['Bootstrap', 'CSS3', 'Docker', 'Heroku', 'HTML5', 'Javascript', 'Jira', 'MongoDB', 'NodeJs']}
-            demo="http://helpingmyfriend.com/"
+            demo="http://helpingmyfriend.com"
           />
           <Project
             title="Beaver Cocktails"

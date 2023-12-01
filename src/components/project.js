@@ -1,9 +1,10 @@
 // ##########################################
 // #        Import External Components      #
 // ##########################################
+import React, { useState } from 'react';
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
-import { Button as BootstrapButton } from 'react-bootstrap'
+import { Button as BootstrapButton, Modal, Carousel, Card } from 'react-bootstrap'
 
 // ##########################################
 // #        Import Local Components         #
@@ -51,7 +52,44 @@ const Image = styled.img`
   border-radius: 5px;
 	&:hover {
     transform: scale(1.05);
-  }
+		cursor: pointer;
+	}
+`;
+
+const StyledCarousel = styled(Carousel)`
+	
+`;
+
+const CarouselImagesContainer = styled.div`
+	
+`;
+
+const CarouselImage = styled.img`
+  width: 100%;
+	border-radius: 5px;
+	border: solid;
+  border-radius: 5px;
+`;
+
+const StyledModal = styled(Modal)`
+	place-content: center;
+	.modal-content {
+		background-color: rgba(0,0,0,.0001);
+  	border: none;
+	}
+`;
+
+const StyledHeader = styled(Modal.Header)`
+	border-bottom: none;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	.btn-close {
+		filter: invert(0.8);
+		padding: 0;
+		margin-top: -2.5rem;
+	}
 `;
 
 const DescriptionContainer = styled.div`
@@ -123,13 +161,20 @@ const Button = styled(BootstrapButton)`
   @media (max-width: 991px) {
     justify-self: self-end;
 	}
-	
 `;
 
 // ##########################################
 // #           Project Component            #
 // ##########################################
 export default function Project(props) {
+	
+	const [showCarouselModal, setShowCarouselModal] = useState(false);
+	const [index, setIndex] = useState(0);
+	
+	const handleImageSelection = (selectedIndex) => {
+    setShowCarouselModal(true)
+		setIndex(selectedIndex);
+  };
 	
   return (
 		<ProjectContainer>
@@ -138,7 +183,7 @@ export default function Project(props) {
 			
 			<ImagesContainer>
 				{props.images.map((image, idx) =>
-					<ImagesContainer key={image}>
+					<ImagesContainer key={image} onClick={() => handleImageSelection(idx)}>
 						<Image src={image} />
 					</ImagesContainer>
 				)}
@@ -176,6 +221,31 @@ export default function Project(props) {
 				<></>
 			}
 			</ButtonsContainer>
+
+			<StyledModal
+				show={showCarouselModal}
+				onHide={() => setShowCarouselModal(false)}
+				{...props}
+				dialogClassName="modal-width"
+				aria-labelledby="contained-modal-title-vcenter"
+				centered
+			>
+				<StyledHeader closeButton="true">
+				</StyledHeader>
+				
+				<StyledCarousel activeIndex={index} onSelect={handleImageSelection} interval={null} slide={false}>
+					
+					{props.images.map((image, idx) =>
+						<Carousel.Item>
+							<Card key={image}>
+								<Card.Img variant="top" src={image}/>
+							</Card>
+						</Carousel.Item>
+					)}
+					
+				</StyledCarousel>
+				
+			</StyledModal>
 
 		</ProjectContainer>
   );

@@ -59,6 +59,7 @@ const CoverCharacter = styled.span`
 		background-size: 100% 1100%;
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
+		cursor: default;
 	}
 `;
 
@@ -103,6 +104,7 @@ const CoverSocialIcon = styled.a`
 	&:hover {
 		color: white;
 		transform: scale(1.25);
+		cursor: pointer;
 	}
 `;
 
