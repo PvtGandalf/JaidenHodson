@@ -113,7 +113,7 @@ export default function ContactForm() {
 // #          Phone Reformatting            #
 // ##########################################
   function formatPhoneNumber(value) {
-    // If their is no input return
+    // If there is no input return
     if (!value) return value;
 
     // Clean the input for any non-digit values.
@@ -197,7 +197,7 @@ export default function ContactForm() {
 			{/* Phone Input Field */}
 			<StyledFormGroup className="mb-3" controlId="form.Phone">
 				<StyledFormLabel>Phone</StyledFormLabel>
-				<Form.Control required type="tel" name="phone" placeholder="+1 (555) 555-5555" pattern=".{14,}" onChange={(e) => handlePhoneInput(e)} value={phone}/>
+				<Form.Control required type="tel" name="phone" placeholder="(555) 555-5555" pattern=".{14,}" onChange={(e) => handlePhoneInput(e)} value={phone}/>
 				<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 				<Form.Control.Feedback type="invalid">Please provide a valid phone number.</Form.Control.Feedback>
 			</StyledFormGroup>
