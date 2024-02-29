@@ -11,7 +11,11 @@ import { Modal, Button } from 'react-bootstrap'
 // #        Import Local Components         #
 // ##########################################
 import Resume from '../components/resume';
-import ResumePdf from '../pdfs/Jaiden-Hodson-Resume.pdf';
+
+// ##########################################
+// #             Resume Link                #
+// ##########################################
+const RESUME_LINK = process.env.PUBLIC_URL + '/pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -160,9 +164,7 @@ const ResumeContainer = styled.div`
 // #            Cover Component             #
 // ##########################################
 export default function Cover(props) {
-	
-	const resumeDownloadLink = 'https://drive.google.com/file/d/1TcNxx0coo2Wiro90i2QdklgE3CRUWh8G/view?usp=sharing';
-	
+		
 	const [showResumeModal, setShowResumeModal] = useState(false);
 	
 	function stringToCoverCharacter(string) {
@@ -225,7 +227,7 @@ export default function Cover(props) {
 				>
 					<StyledHeader closeButton="true">
 						<StyledButton variant="primary">
-							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume">
+							<DownloadLink href={RESUME_LINK} download="Jaiden-Hodson-Resume">
 								Download <StyledFaDownload />
 							</DownloadLink>
 						</StyledButton>{' '}
