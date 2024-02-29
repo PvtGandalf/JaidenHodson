@@ -227,7 +227,7 @@ export default function Cover(props) {
 				>
 					<StyledHeader closeButton="true">
 						<StyledButton variant="primary">
-							<DownloadLink href={RESUME_LINK} target='_blank' rel='noopener noreferrer'>
+							<DownloadLink href={RESUME_LINK} download={"Jaiden-Hodson-Resume.pdf"}>
 								Download <StyledFaDownload />
 							</DownloadLink>
 						</StyledButton>{' '}
