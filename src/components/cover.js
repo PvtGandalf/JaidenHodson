@@ -16,7 +16,7 @@ import Resume from '../components/resume';
 // ##########################################
 // #             Resume Link                #
 // ##########################################
-const RESUME_LINK = process.env.PUBLIC_URL + '/pdfs/Jaiden-Hodson-Resume.pdf';
+const RESUME_LINK = process.env.REACT_APP_CLIENT_URL + '/pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
