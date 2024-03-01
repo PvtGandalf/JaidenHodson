@@ -6,7 +6,6 @@ import { FaLinkedin, FaGithub, FaMediumM, FaEnvelope, FaBook, FaDownload} from '
 import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react'
 import { Modal, Button } from 'react-bootstrap'
-import FileSaver from 'file-saver';
 
 // ##########################################
 // #        Import Local Components         #
@@ -16,7 +15,7 @@ import Resume from '../components/resume';
 // ##########################################
 // #             Resume Link                #
 // ##########################################
-const RESUME_LINK = process.env.REACT_APP_CLIENT_URL + '/pdfs/Jaiden-Hodson-Resume.pdf';
+const RESUME_LINK = '/pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -181,10 +180,6 @@ export default function Cover(props) {
 	const coverSubtextArray1 = stringToCoverCharacter(props.subtext[0]);
 	const coverSubtextArray2 = stringToCoverCharacter(props.subtext[1]);
 	
-	function downloadResume() {
-		FileSaver.saveAs(RESUME_LINK, "Jaiden-Hodson-Resume.pdf");
-	}
-	
 	return (
 		<TitleBadgeContainer>
 		
@@ -232,7 +227,7 @@ export default function Cover(props) {
 				>
 					<StyledHeader closeButton="true">
 						<StyledButton variant="primary">
-							<DownloadLink onClick={downloadResume}>
+							<DownloadLink href={RESUME_LINK} download="Jaiden-Hodson-Resume" target="_blank" rel="noreferrer">
 								Download <StyledFaDownload />
 							</DownloadLink>
 						</StyledButton>{' '}
