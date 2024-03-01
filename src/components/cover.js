@@ -11,7 +11,11 @@ import { Modal, Button } from 'react-bootstrap'
 // #        Import Local Components         #
 // ##########################################
 import Resume from '../components/resume';
-import ResumePdf from '../pdfs/Jaiden-Hodson-Resume.pdf';
+
+// ##########################################
+// #             Resume Link                #
+// ##########################################
+const RESUME_LINK = '/pdfs/Jaiden-Hodson-Resume.pdf';
 
 // ##########################################
 // #           Keyframe Animations          #
@@ -223,7 +227,7 @@ export default function Cover(props) {
 				>
 					<StyledHeader closeButton="true">
 						<StyledButton variant="primary">
-							<DownloadLink href={ResumePdf} download="Jaiden-Hodson-Resume.pdf">
+							<DownloadLink href={RESUME_LINK} download="Jaiden-Hodson-Resume" target="_blank" rel="noreferrer">
 								Download <StyledFaDownload />
 							</DownloadLink>
 						</StyledButton>{' '}
