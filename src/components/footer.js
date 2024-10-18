@@ -54,6 +54,8 @@ const WebsiteLink = styled.a`
 // #            Footer Component            #
 // ##########################################
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <StyledFooter>
       <SocialContainer>
@@ -78,7 +80,7 @@ export default function Footer() {
     
       <CopyrightContainer>
         <CopyrightText>
-          © 2020 Copyright: <WebsiteLink href="../home">PvtGandalf.com</WebsiteLink>
+          © {currentYear} Copyright: <WebsiteLink href="../home">PvtGandalf.com</WebsiteLink>
         </CopyrightText>
       </CopyrightContainer>
     </StyledFooter>
