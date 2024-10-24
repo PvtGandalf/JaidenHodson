@@ -105,12 +105,28 @@ export default function Projects() {
         </TitleContainer>
         
         <ProjectsContainer>
-					<Project
+        <Project
+            title="Elixir Experiment"
+            images={["/images/projects/ElixirExperiment[Home].png",
+            "/images/projects/ElixirExperiment[Cocktail].png",
+						"/images/projects/ElixirExperiment[Ingredients].png"]}
+            description="Designed, developed, and released a fully functional mobile application to the Google Play Store."
+            technology={['Android', 'Dart', 'Git', 'Figma', 'Flutter']}
+            demo="https://play.google.com/store/apps/details?id=com.pvtgandalf.the_elixir_experiment"
+          />
+          <Project
+            title="Whole Body Health"
+            images={["/images/projects/WBH[Home].png", "/images/projects/WBH[Founder].png"]}
+            description="Worked alongside a frontend designer to create a user-friendly, responsive website for a company within the chiropractic sector."
+            technology={['AWS', 'Bootstrap', 'CSS3', 'HTML5', 'MaterialUI', 'React', 'Typescript']}
+            demo="https://www.wholebodyhealthlebanon.com"
+          />
+          <Project
             title="MUFG & Union Bank"
             images={["/images/projects/MUFG[Mobile].png",
 						"/images/projects/MUFG[Updated].png"]}
             description="Integrated an authentication orchestration system into the bank’s login and HRT flows to improve user experience and maintainability of code."
-            technology={['AWS', 'Bash', 'Bootstrap', 'CSS3', 'Docker', 'Express', 'Git', 'HTML5', 'Java', 'Javascript', 'Jira', 'NodeJs', 'Python', 'React']}
+            technology={['AWS', 'Bash', 'Bootstrap', 'CSS3', 'Docker', 'Express', 'Git', 'HTML5', 'Java', 'Jenkins', 'Jira', 'NodeJs', 'Python', 'React', 'Typescript']}
             demo="https://sso.mufgamericas.com/login/auth"
           />
           <Project
@@ -120,13 +136,6 @@ export default function Projects() {
             technology={['AWS', 'Bootstrap', 'CSS3', 'HTML5', 'Javascript', 'MaterialUI', 'React']}
             demo="https://www.marvelcomicwiki.com"
             code="https://github.com/PvtGandalf/MarvelComicWiki"
-          />
-          <Project
-            title="Whole Body Health"
-            images={["/images/projects/WBH[OneBlog].jpeg", "/images/projects/WBH[AllBlogs].jpeg"]}
-            description="This website uses my personally designed API to pull data into the UI that dynamically adjusts to its content."
-            technology={['AWS', 'Bootstrap', 'CSS3', 'Docker', 'HTML5', 'Javascript', 'MaterialUI', 'MongoDB', 'NodeJs', 'React']}
-            demo="https://www.wholebodyhealthlebanon.com"
           />
           <Project
             title="Helping My Friend"
